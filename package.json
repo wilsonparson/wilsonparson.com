@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "wilsonparson.com",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Personal website and blog",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Wilson Parson <wilson.parson@gmail.com>",
   "dependencies": {
     "gatsby": "^2.16.1",
     "gatsby-image": "^2.2.29",
