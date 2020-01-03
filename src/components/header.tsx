@@ -2,7 +2,7 @@ import { Link } from 'gatsby'
 import React from 'react'
 import Logo from './logo'
 
-const Header = () => (
+const Header: React.FunctionComponent = () => (
   <header>
     <Link to="/" className="block p-1">
       <Logo className="w-24" />
