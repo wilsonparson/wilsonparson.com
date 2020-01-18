@@ -13,6 +13,14 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown-pages`,
+        path: `${__dirname}/src/posts`,
+      },
+    },
+    `gatsby-transformer-remark`,
     `gatsby-plugin-postcss`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
