@@ -1,11 +1,7 @@
 import React from 'react'
 
-interface Props {
-  className: string
-}
-
-const Logo = ({ className }: Props) => (
-  <svg viewBox="0 0 47.5 30" shape-rendering="crispEdges" className={className}>
+const Logo = () => (
+  <svg viewBox="0 0 47.5 30" shape-rendering="crispEdges">
     <g transform="translate(5, 5)">
       <polygon
         points="0,0

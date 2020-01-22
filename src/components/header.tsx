@@ -4,8 +4,8 @@ import Logo from './logo'
 
 const Header: React.FunctionComponent = () => (
   <header>
-    <Link to="/" className="block p-1">
-      <Logo className="w-24" />
+    <Link to="/">
+      <Logo />
     </Link>
   </header>
 )
