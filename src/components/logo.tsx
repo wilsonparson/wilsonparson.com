@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Logo = () => (
-  <svg viewBox="0 0 47.5 30" shape-rendering="crispEdges">
+  <svg viewBox="0 0 47.5 30" shapeRendering="crispEdges">
     <g transform="translate(5, 5)">
       <polygon
         points="0,0
