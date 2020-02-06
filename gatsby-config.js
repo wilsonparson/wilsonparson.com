@@ -21,9 +21,9 @@ module.exports = {
       },
     },
     `gatsby-transformer-remark`,
-    `gatsby-plugin-postcss`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-theme-ui`,
     `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-plugin-manifest`,
