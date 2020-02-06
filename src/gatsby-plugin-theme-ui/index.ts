@@ -1,6 +1,7 @@
 import { Theme } from 'theme-ui'
 
 const theme: Theme = {
+  breakpoints: ['576px', '768px', '992px', '1200px'],
   colors: {
     text: '#333',
     background: '#fff',
@@ -23,6 +24,20 @@ const theme: Theme = {
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+  sizes: [
+    0,
+    '0.25rem',
+    '0.5rem',
+    '0.75rem',
+    '1rem',
+    '1.25rem',
+    '1.5rem',
+    '2rem',
+    '2.5rem',
+    '3rem',
+    '4rem',
+    '5rem',
+  ],
 }
 
 export default theme
