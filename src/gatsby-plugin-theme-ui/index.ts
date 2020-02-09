@@ -37,6 +37,12 @@ const theme: Theme = {
     '3rem',
     '4rem',
     '5rem',
+    '6rem',
+    '8rem',
+    '10rem',
+    '12rem',
+    '14rem',
+    '16rem',
   ],
 }
 
