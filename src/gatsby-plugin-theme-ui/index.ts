@@ -44,6 +44,11 @@ const theme: Theme = {
     '14rem',
     '16rem',
   ],
+  styles: {
+    h1: {
+      color: 'primary',
+    },
+  },
 }
 
 export default theme
