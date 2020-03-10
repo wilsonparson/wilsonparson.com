@@ -1,3 +1,6 @@
+---
+layout: site-shell
+---
 # wilsonparson.com
 
 I'm building this blog in the open. 
