@@ -1,5 +1,5 @@
 ---
-layout: site-shell
+layout: base
 ---
 # wilsonparson.com
 

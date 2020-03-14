@@ -4,8 +4,13 @@
   "description": "My personal website and blog",
   "main": "index.js",
   "scripts": {
-    "build": "eleventy",
-    "start": "eleventy --serve"
+    "build": "npm-run-all build:css build:html",
+    "build:html": "eleventy",
+    "build:css": "postcss src/_includes/tailwind.css -o _css-out/styles.css",
+    "watch": "npm-run-all --parallel watch:css watch:html",
+    "watch:css": "postcss _includes/tailwind.css -o _css-out/styles.css --watch",
+    "watch:html": "eleventy --serve",
+    "start": "npm run watch"
   },
   "repository": {
     "type": "git",
@@ -18,6 +23,9 @@
   },
   "homepage": "https://github.com/wilsonparson/wilsonparson.com#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^0.10.0"
+    "@11ty/eleventy": "^0.10.0",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^7.1.0",
+    "tailwindcss": "^1.2.0"
   }
 }
