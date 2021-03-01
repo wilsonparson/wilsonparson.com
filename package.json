@@ -1,31 +1,65 @@
 {
   "name": "wilsonparson.com",
-  "version": "1.0.0",
-  "description": "My personal website and blog",
-  "main": "index.js",
+  "private": true,
+  "description": "Personal website and blog",
+  "version": "0.1.0",
+  "author": "Wilson Parson <wilson.parson@gmail.com>",
+  "dependencies": {
+    "@emotion/core": "^10.0.27",
+    "@mdx-js/mdx": "^1.5.5",
+    "@mdx-js/react": "^1.5.5",
+    "gatsby": "^2.19.12",
+    "gatsby-image": "^2.2.40",
+    "gatsby-plugin-manifest": "^2.2.41",
+    "gatsby-plugin-mdx": "^1.0.70",
+    "gatsby-plugin-offline": "^3.0.34",
+    "gatsby-plugin-react-helmet": "^3.1.22",
+    "gatsby-plugin-sharp": "^2.4.5",
+    "gatsby-plugin-theme-ui": "^0.3.0",
+    "gatsby-plugin-typescript": "^2.1.27",
+    "gatsby-remark-images": "^3.1.44",
+    "gatsby-remark-prismjs": "^3.3.31",
+    "gatsby-remark-responsive-iframe": "^2.2.32",
+    "gatsby-source-filesystem": "^2.1.48",
+    "gatsby-transformer-sharp": "^2.3.14",
+    "prismjs": "^1.19.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^5.2.1",
+    "theme-ui": "^0.2.52"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.26",
+    "@types/react": "^16.9.19",
+    "@types/react-dom": "^16.9.5",
+    "@types/theme-ui": "^0.2.8",
+    "@typescript-eslint/eslint-plugin": "^2.19.0",
+    "@typescript-eslint/parser": "^2.19.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.3",
+    "prettier": "^1.19.1",
+    "typescript": "^3.7.5"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
   "scripts": {
-    "build": "npm-run-all build:css build:html",
-    "build:html": "eleventy",
-    "build:css": "postcss src/_includes/tailwind.css -o _css-out/styles.css",
-    "watch": "npm-run-all --parallel watch:css watch:html",
-    "watch:css": "postcss _includes/tailwind.css -o _css-out/styles.css --watch",
-    "watch:html": "eleventy --serve",
-    "start": "npm run watch"
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wilsonparson/wilsonparson.com.git"
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
   },
-  "author": "Wilson Parson",
-  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wilsonparson/wilsonparson.com/issues"
-  },
-  "homepage": "https://github.com/wilsonparson/wilsonparson.com#readme",
-  "devDependencies": {
-    "@11ty/eleventy": "^0.10.0",
-    "npm-run-all": "^4.1.5",
-    "postcss-cli": "^7.1.0",
-    "tailwindcss": "^1.2.0"
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }
