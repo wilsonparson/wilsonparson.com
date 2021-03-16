@@ -3,7 +3,9 @@ title: Notes from the book _Code Complete_
 slug: code-complete
 ---
 
-## Steps in designing objects (p. 87)
+## 5.3 Design Building Blocks: Heuristics
+
+### Steps in designing objects (p. 87)
 
 - Identify the objects and their attributes (methods and data).
 - Determine what can be done to each object.
@@ -14,3 +16,20 @@ slug: code-complete
 > Abstraction is the ability to engage with a concept while safely ignoring some of its details—handling different details at different levels (p. 89).
 
 > Encapsulation helps to manage complexity by forbidding you to look at the complexity (p. 90).
+
+### Hide Secrets (Information Hiding)
+
+Two reasons to hide information (p. 94):
+
+1. Hiding **complexity** so that your brain doesn't have to deal with it unless you're specifically concerned with it.
+2. Hiding **sources of change** so that when change occurs, the effects are localized.
+
+> Minor changes to a system might affect several routines within a class, but they should not ripple beyond the class interface (p. 93).
+
+> The interface to a class should reveal as little as possible about its inner workings (p. 94).
+
+> Hiding a design decision makes a huge difference in the amount of code affected by a change (p. 95).
+
+> While the road to programming hell is paved with global variables, class data presents far fewer risks (p. 95).
+
+> Get into the habit of asking, "What should I hide?" You'll be surprised at how many difficult design issues dissolve before your eyes (p. 97).
