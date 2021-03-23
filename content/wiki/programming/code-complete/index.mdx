@@ -33,3 +33,10 @@ Two reasons to hide information (p. 94):
 > While the road to programming hell is paved with global variables, class data presents far fewer risks (p. 95).
 
 > Get into the habit of asking, "What should I hide?" You'll be surprised at how many difficult design issues dissolve before your eyes (p. 97).
+
+### Identify Areas Likely to Change
+
+Two areas likely to change that stood out to me (because of what I'm currently working on):
+
+1. Business rules - try to keep them all contained and in the same place, rather than strewn througout your code.
+2. Status variables - Use enums instead of booleans, and use getters rather than accessing the status variables directly.
