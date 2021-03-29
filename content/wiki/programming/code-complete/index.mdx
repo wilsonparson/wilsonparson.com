@@ -40,3 +40,14 @@ Two areas likely to change that stood out to me (because of what I'm currently w
 
 1. Business rules - try to keep them all contained and in the same place, rather than strewn througout your code.
 2. Status variables - Use enums instead of booleans, and use getters rather than accessing the status variables directly.
+
+### Keep Coupling Loose
+
+#### Types of Coupling (best to worst) (p. 101-102)
+
+- **Simple-data-parameter coupling** - simple data types passed as parameters. Normal and acceptable.
+- **Simple-object coupling** - When a class or method instantiates another class. Fine.
+- **Object-parameter coupling** - _Object1_ requires _Object2_ to pass it an _Object3_. Tighter than primitive data types, because it requires _Object2_ to know about _Object3_.
+- **Semantic coupling** - When a class or method has some semantic knowledge of the inner workings of another class or method. Most "insidious" kind of coupling.
+  - _Module1_ passes a control flag to _Module2_. This requires _Module1_ to make assumptions about what _Module2_ will do with the control flag.
+  - _Module1_ expects global data to have been changed by _Module2_.
