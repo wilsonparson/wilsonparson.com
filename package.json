@@ -5,7 +5,6 @@
   "version": "0.1.0",
   "author": "Wilson Parson <wilson.parson@gmail.com>",
   "dependencies": {
-    "@emotion/core": "^10.0.27",
     "@mdx-js/mdx": "^1.5.5",
     "@mdx-js/react": "^1.5.5",
     "gatsby": "^2.32.8",
