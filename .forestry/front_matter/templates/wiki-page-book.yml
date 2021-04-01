@@ -20,4 +20,5 @@ fields:
   label: Book Author
   description: Author of the book
 pages:
+- content/wiki/books/12-rules-for-life/index.mdx
 - content/wiki/books/code-complete/index.mdx
