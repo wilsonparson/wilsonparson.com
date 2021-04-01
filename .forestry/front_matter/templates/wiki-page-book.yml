@@ -19,3 +19,5 @@ fields:
     required: false
   label: Book Author
   description: Author of the book
+pages:
+- content/wiki/books/code-complete/index.mdx
