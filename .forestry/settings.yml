@@ -5,11 +5,17 @@ admin_path:
 webhook_url: 
 sections:
 - type: directory
+  path: content/wiki/nora-sayings
+  label: Nora Sayings
+  create: documents
+  match: "**/*.yaml"
+  new_doc_ext: ".yaml"
+- type: directory
   path: content/wiki
   label: Wiki
   create: all
   match: "**/*"
-  new_doc_ext: ".mdx"
+  new_doc_ext: mdx
 upload_dir: uploads
 public_path: "/uploads"
 front_matter_path: ''
