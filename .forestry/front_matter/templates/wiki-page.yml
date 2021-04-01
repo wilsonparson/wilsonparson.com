@@ -1,0 +1,10 @@
+---
+label: Wiki Page
+hide_body: false
+fields:
+- type: text
+  name: slug
+  label: slug
+- type: text
+  name: title
+  label: title
