@@ -8,11 +8,11 @@ book_author: Steve McConnell
 
 ### Steps in designing objects (p. 87)
 
-- Identify the objects and their attributes (methods and data).
-- Determine what can be done to each object.
-- Determine what can each object is allowed to do to other objects.
-- Determine the parts of each object that will be visible to other objects—which parts will be public and which will be private.
-- Define each object's public interface
+* Identify the objects and their attributes (methods and data).
+* Determine what can be done to each object.
+* Determine what can each object is allowed to do to other objects.
+* Determine the parts of each object that will be visible to other objects—which parts will be public and which will be private.
+* Define each object's public interface
 
 > Abstraction is the ability to engage with a concept while safely ignoring some of its details—handling different details at different levels (p. 89).
 
@@ -46,9 +46,15 @@ Two areas likely to change that stood out to me (because of what I'm currently w
 
 #### Types of Coupling (best to worst) (p. 101-102)
 
-- **Simple-data-parameter coupling** - simple data types passed as parameters. Normal and acceptable.
-- **Simple-object coupling** - When a class or method instantiates another class. Fine.
-- **Object-parameter coupling** - _Object1_ requires _Object2_ to pass it an _Object3_. Tighter than primitive data types, because it requires _Object2_ to know about _Object3_.
-- **Semantic coupling** - When a class or method has some semantic knowledge of the inner workings of another class or method. Most "insidious" kind of coupling.
-  - _Module1_ passes a control flag to _Module2_. This requires _Module1_ to make assumptions about what _Module2_ will do with the control flag.
-  - _Module1_ expects global data to have been changed by _Module2_.
+* **Simple-data-parameter coupling** - simple data types passed as parameters. Normal and acceptable.
+* **Simple-object coupling** - When a class or method instantiates another class. Fine.
+* **Object-parameter coupling** - _Object1_ requires _Object2_ to pass it an _Object3_. Tighter than primitive data types, because it requires _Object2_ to know about _Object3_.
+* **Semantic coupling** - When a class or method has some semantic knowledge of the inner workings of another class or method. Most "insidious" kind of coupling.
+  * _Module1_ passes a control flag to _Module2_. This requires _Module1_ to make assumptions about what _Module2_ will do with the control flag.
+  * _Module1_ expects global data to have been changed by _Module2_.
+
+### Look for Common Design Patterns
+
+If you stick to common design patterns, you can speak the same language as other engineers you're working with. Thinking in design patterns allows you to work from a list of constraints for solutions to your problem, rather than designing something completely from scratch. Finally, design patterns allow you to speak at a more abstract level about the architecture.
+
+Nearly all the patterns he lists on p. 104 are unrecognizable to me 😳
