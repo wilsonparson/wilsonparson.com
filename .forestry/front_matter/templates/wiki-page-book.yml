@@ -1,4 +1,21 @@
 ---
 label: Wiki Page - Book
 hide_body: false
-fields: []
+fields:
+- name: title
+  type: text
+  config:
+    required: false
+  label: Title
+  description: Title of the book
+- name: slug
+  type: text
+  config:
+    required: false
+  label: Slug
+- name: book_author
+  type: text
+  config:
+    required: false
+  label: Book Author
+  description: Author of the book
