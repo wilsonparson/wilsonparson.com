@@ -1,0 +1,114 @@
+---
+slug: gatsby
+title: Gatsby
+---
+
+## Queries
+
+### Page Queries
+
+- You must export a graphql query
+- Only available on "Page" components
+- Typically you export the query at the end of the file (outside of the component definition)
+
+### Static Queries
+
+- Lets non-page components (like a layout component) make graphql queries
+- Use the `useStaticQuery` hook **inside** your component
+
+### Query Syntax
+
+```graphql
+query MyQuery {
+  site {
+    siteMetadata {
+      title
+    }
+  }
+}
+```
+
+`query` is the graphql operation type. Gatsby only ever uses `query` so you can actually omit it. The other operation types are `mutation` and `subscription`.
+
+`MyQuery` is the name of the operation. Similar to a JavaScript `function` you can leave it anonymous if you want.
+
+Without naming the operation:
+
+```diff
+-query MyQuery {
++query {
+  site {
+    siteMetadata {
+      title
+    }
+  }
+}
+```
+
+Without naming the operation or operation type:
+
+```diff
+-query MyQuery {
+site {
+  siteMetadata {
+    title
+  }
+}
+-}
+```
+
+### Arguments
+
+You can pass arguments to queries to specify things like how to **sort** or **filter** the nodes, how many nodes to **skip**, and choose the **limit** of how many nodes to retrieve.
+
+## GraphiQL
+
+Building new pages in Gatsby often starts in GraphiQL.
+
+`Ctrl + Space` or `Shift + Space` = show autocomplete window
+`Ctrl + Enter` or `Cmd + Enter` = run query
+
+**Node** = a fancy name for an object in a graph
+
+## gatsby-source-filesystem
+
+Adds `file` and `allFile` as selections.
+
+If I'm understanding correctly, it seems that the `edges` key generally returns an array of objects in the shape of `{ previous, node, next }`.
+
+- `previous`: Lets you look into the previous node
+- `node`: The current node
+- `next`: Lets you look into the next node
+
+It can be helpful to `console.log` out the data when you're building a page with Gatsby, just so you can verify the shape of the data
+
+## Transformer Plugins
+
+- Source plugins: bring data _into_ Gatsby
+- Transformer plugins: _transform_ the raw content brought in by source plugins
+
+For example, `gatsby-source-filesystem` on its own only lets you query metadata _about_ the files—it doesn't let you query data _inside_ the files. For that we need a transformer plugin.
+
+### gatsby-transformer-remark
+
+`gatsby-transformer-remark` transforms markdown files so that we can query the data inside the files and also have the markdown be output as html.
+
+After you add `gatsby-transformer-remark` to your `gatsby-config.js`, you will see the following new selections in GraphiQL:
+
+- `allMarkdownRemark`
+- `markdownRemark`
+
+> Side note: It appears that all the singular options in the GraphiQL left panel (e.g., `file` as opposed to `allFile`) return the first instance that matches, perhaps just for exploration? Similar to `querySelector` vs `querySelectorAll`.
+
+`gatsby-transformer-remark` adds some cool metadata about markdown files!
+
+- `html` - the html output of the markdown file
+- `timeToRead` - an estimate in minutes of how long it takes to read?
+- `tableOfContents` - Outputs a `<ul>` of links that correspond with the headings in your markdown file!
+- `headings` - Returns an array of your headings and their depth
+- `frontmatter` - Lets you query into the front matter of the markdown file
+- `htmlAst` - Returns the HTML in an abstract syntax tree
+- `rawMarkdownBody` - I think the purpose of this is to use things like regex to search for specific content
+- `excerpt` - I'm not sure how this one works, but it seems like a way to grab an excerpt from the beginning of the content to display as a preview elsewhere.
+
+There are a lot of other keys I didn't list here.
