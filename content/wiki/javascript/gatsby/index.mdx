@@ -316,8 +316,8 @@ I'm not entirely sure what's happening with the query above (looks like I need t
 - This is a page query
 - It accepts a parameter `$slug`, which is a string
 - This parameter is provided by the `context` argument that we passed to `createPage`, where we included `slug` as a field that would be available for page queries
-- I don't understand the `$` part
-- I also don't understand the `!` after String
+- I don't fully understand the `$`. [GraphQL Docs - Passing Arguments](https://graphql.org/graphql-js/passing-arguments/) suggests using `$` as a way to build queries in code without manually constructing the entire query string for your graphql endpoint. In this sense the dollar sign appears to work in a similar fashion to prepared statements and argument injection in SQL. Gatsby must be doing something else behind the scenes to inject the variables into the query for us...
+- The `!` after String means it is non-nullable (i.e., not optional)
 - We are querying `markdownRemark`, rather than `allMarkdownRemark`, because we just want a subset (in this case, just one) of the `markdownRemark` nodes.
 - We specify exactly which `markdownRemark` node we want by matching the slug passed in as the parameter to the slug in the result
 
