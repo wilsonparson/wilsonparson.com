@@ -5,7 +5,7 @@ title: React
 
 ## React Tutorial
 
-I've felt a sudden desire to build a really strong foundation in React, so I'm going back to the fundamentals and going through the official React tutorial on reactjs.org.
+I've felt a sudden desire to build a really strong foundation in React, so I'm going back to the fundamentals and going through the official React tutorial on reactjs.org. Below are some notes from my learnings.
 
 ### Don't prematurely lift state
 
@@ -15,7 +15,7 @@ A pattern I've noticed with the tutorial is that it first instructs you to maint
 
 The tutorial also has you lift state when you add time travel at the end. So it _does_ seem like you often end up lifting state when you add a new feature, which is why it's hard to know exactly how high the final state will be when you're first starting to build the components. It's easier to start with state as low as possible and move up from there when you have to.
 
-### Another angle of controlled components
+### Another angle on controlled components
 
 I had always associated the concept of "controlled components" with form elements only, but in the tutorial they refer to the `<Square />` components as "controlled components" once we lifted state out of them and passed click handlers down to them. They are "controlled components" because the parent `<Board />` component has complete control over them. It tells them what to render, and also what to do when they're clicked.
 
