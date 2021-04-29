@@ -83,3 +83,40 @@ Top-down (decomposition) is generally easier for our brains, because we're natur
 #### When do you stop decomposing?
 
 Just keep going until you become slightly irritated at how simple it is, and you realize that it would be easier to write the actual code than to decompose the design of the system one level deeper.
+
+### Experimental Prototyping
+
+Helps to combat the "wickedness" of design (the fact that you sometimes have to actually build something in order to design it).
+
+> Writing the absolute minimum amount of throwaway code that's needed to answer a specific design question.
+
+#### Pitfalls of Prototyping
+
+- When you're not disciplined about writing the absolute _minimum_ amount of code
+- When you don't treat the code as throwaway code.
+  - One way to avoid this problem is to use a _different technology_ in the prototype than will be used in production. For example, mock up the UI with Powerpoint or some prototyping tool, rather than prototyping directly in the code. Or use an environment that is inherently ephemeral, like Code Sandbox.
+
+### Collaborative Design
+
+> Perfectionism loves isolation. It would prefer you go it alone, convincing you that relying on others is cheating.
+>
+> - _Finish: Give Yourself the Gift of Done_, by Jon Acuff
+
+> Most of the worst decisions you've ever made were made alone.
+>
+> - _Finish: Give Yourself the Gift of Done_, by Jon Acuff
+
+### How Much Design is Enough?
+
+This depends on the team and the project. If the team is really experienced and familiar with the application area, you probably don't need to go into as much detail.
+
+The author errs on the side of doing _too much_ design, because most of the design problems he has observed arose from stopping design too early. Another thought is that I read somewhere that the vast majority of bugs are do to missing or unclear requirements, rather than typos or incorrect code.
+
+## 5.5 Comments on Popular Methodologies
+
+Apparently the pendulum swings back and forth between it being on vogue to do design up front, or to do no design at all. The author advocates for doing "Enough Design Up Front." The extremes&mdash;designing every detail up front or doing no design at all&mdash;are not the way to go.
+
+> The more dogmatic you are about applying a design method, the fewer real-life problems you are going to solve.
+> &mdash;Plauger 1993
+
+I think the quote above also applies to being dogmatic about how exactly your code should be written. Try to see the forest through the trees.
