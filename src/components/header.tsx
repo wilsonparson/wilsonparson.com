@@ -1,13 +1,12 @@
-import { Link } from 'gatsby'
-import React from 'react'
-import Logo from './logo'
+import { Link } from 'gatsby';
+import * as React from 'react';
 
-const Header: React.FunctionComponent = () => (
-  <header>
+const Header = () => (
+  <header className="p-8">
     <Link to="/" aria-label="Home">
-      <Logo />
+      <img src="/wp-logo.svg" alt="" className="w-16" />
     </Link>
   </header>
-)
+);
 
-export default Header
+export default Header;
