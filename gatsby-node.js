@@ -4,39 +4,38 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-const path = require(`path`)
+const path = require(`path`);
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
-  const blogPostTemplate = path.resolve(`src/templates/blog-template.tsx`)
+  const blogPostTemplate = path.resolve(`src/templates/blog-template.tsx`);
 
   const result = await graphql(`
-    {
-      allMdx(sort: { order: DESC, fields: [frontmatter___date] }, limit: 1000) {
+    query MyQuery {
+      allMdx(filter: { fileAbsolutePath: { regex: "content/wiki/" } }) {
         edges {
           node {
-            frontmatter {
-              path
-            }
-            body
+            slug
           }
         }
       }
     }
-  `)
+  `);
 
   // Handle errors
   if (result.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`)
-    return
+    reporter.panicOnBuild(`Error while running GraphQL query.`);
+    return;
   }
 
   result.data.allMdx.edges.forEach(({ node }) => {
     createPage({
-      path: node.frontmatter.path,
+      path: 'wiki/' + node.slug,
       component: blogPostTemplate,
-      context: {}, // additional data can be passed via context
-    })
-  })
-}
+      context: {
+        slug: node.slug,
+      }, // additional data can be passed via context
+    });
+  });
+};
