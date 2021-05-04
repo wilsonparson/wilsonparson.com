@@ -1,22 +1,35 @@
+/** @jsx jsx */
+import { jsx, Flex, NavLink, Container } from 'theme-ui';
 import { Link } from 'gatsby';
-import * as React from 'react';
-import tw from 'twin.macro';
-
-const NavLink = tw(Link)`
-  font-medium
-  text-gray-600
-  text-sm
-`;
 
 const Header = () => (
-  <header className="container mx-auto px-4">
-    <nav className="flex items-center justify-between">
+  <Container
+    as="header"
+    sx={{
+      px: 3,
+    }}
+  >
+    <Flex
+      as="nav"
+      sx={{
+        justifyContent: 'space-between',
+        alignItems: 'center',
+      }}
+    >
       <Link to="/" aria-label="Home">
-        <img src="/logomark.svg" alt="" className="w-16" />
+        <img
+          src="/logomark.svg"
+          alt=""
+          sx={{
+            width: 16,
+          }}
+        />
       </Link>
-      <NavLink to="/resume">Resume</NavLink>
-    </nav>
-  </header>
+      <NavLink as={Link} to="/resume">
+        Resume
+      </NavLink>
+    </Flex>
+  </Container>
 );
 
 export default Header;

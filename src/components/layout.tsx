@@ -6,7 +6,6 @@
  */
 
 import React from 'react';
-import { GlobalStyles } from 'twin.macro';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import Header from './header';
@@ -29,7 +28,6 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <>
-      <GlobalStyles />
       <div className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-grow">{children}</main>

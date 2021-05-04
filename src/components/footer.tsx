@@ -1,11 +1,22 @@
-import * as React from 'react';
+/** @jsx jsx */
+import { Flex, jsx, NavLink } from 'theme-ui';
 import { Link } from 'gatsby';
 
 export default function Footer() {
   return (
-    <footer className="flex justify-around p-4">
-      <Link to="https://github.com/wilsonparson">Github</Link>
-      <Link to="https://www.linkedin.com/in/wilsonparson">LinkedIn</Link>
-    </footer>
+    <Flex
+      as="footer"
+      sx={{
+        justifyContent: 'space-around',
+        p: 3,
+      }}
+    >
+      <NavLink as={Link} to="https://github.com/wilsonparson">
+        Github
+      </NavLink>
+      <NavLink as={Link} to="https://www.linkedin.com/in/wilsonparson">
+        LinkedIn
+      </NavLink>
+    </Flex>
   );
 }
