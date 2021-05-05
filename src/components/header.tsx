@@ -1,18 +1,17 @@
 /** @jsx jsx */
-import { jsx, Flex, NavLink, Container } from 'theme-ui';
+import { jsx } from 'theme-ui';
 import { Link } from 'gatsby';
 
 const Header = () => (
-  <Container
-    as="header"
+  <header
     sx={{
       px: 3,
     }}
   >
-    <Flex
-      as="nav"
+    <nav
       sx={{
-        justifyContent: 'space-between',
+        display: 'flex',
+        gap: 4,
         alignItems: 'center',
       }}
     >
@@ -25,11 +24,10 @@ const Header = () => (
           }}
         />
       </Link>
-      <NavLink as={Link} to="/resume">
-        Resume
-      </NavLink>
-    </Flex>
-  </Container>
+      <Link to="/wiki">Wiki</Link>
+      <Link to="/resume">Resume</Link>
+    </nav>
+  </header>
 );
 
 export default Header;
