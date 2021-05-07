@@ -1,3 +1,8 @@
+---
+layout: layout.11ty.js
+title: Wilson Parson
+---
+
 # Hi, I'm Wilson.
 
 🧑🏻‍💻 I'm a front-end software engineer living in Utah.
