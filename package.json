@@ -2,5 +2,11 @@
   "name": "wilsonparson.com",
   "description": "Wilson Parson's personal website",
   "version": "0.1.0",
-  "private": true
+  "private": true,
+  "scripts": {
+    "start": "eleventy --serve"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^0.12.1"
+  }
 }
