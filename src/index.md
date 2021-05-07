@@ -1,6 +1,7 @@
 ---
 layout: layout.11ty.js
 title: Wilson Parson
+description: Wilson Parson's personal website.
 ---
 
 # Hi, I'm Wilson.
