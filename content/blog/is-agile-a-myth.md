@@ -4,6 +4,7 @@ title: Is Agile a Myth?
 tags:
   - agile
   - scrum
+draft: true
 ---
 
 ## Does anyone actually do true agile?
