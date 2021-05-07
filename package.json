@@ -1,17 +1,6 @@
 {
   "name": "wilsonparson.com",
-  "private": true,
-  "description": "Personal website and blog",
+  "description": "Wilson Parson's personal website",
   "version": "0.1.0",
-  "author": "Wilson Parson <wilson.parson@gmail.com>",
-  "dependencies": {},
-  "license": "MIT",
-  "scripts": {},
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  }
+  "private": true
 }
