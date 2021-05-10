@@ -120,3 +120,9 @@ Apparently the pendulum swings back and forth between it being on vogue to do de
 > &mdash;Plauger 1993
 
 I think the quote above also applies to being dogmatic about how exactly your code should be written. Try to see the forest through the trees.
+
+## 6.1 Class Foundations: Abstract Data Types (ADTs)
+
+**Abstract Data Type** - a collection of data and operations that work on that data.
+
+Abstract data types help you "tap into the power of being able to work in the problem domain rather than at the low-level implementation domain" (p. 126).
