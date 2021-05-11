@@ -1,0 +1,8 @@
+<nav class="space-x-3">
+{% for link in collections.nav %}
+  <a
+    href="{{ link.url }}"
+    class="text-sm font-semibold p-2 rounded-lg {{ 'bg-gray-100 text-gray-700' if link.url in page.url}}"
+  >{{link.data.title}}</a>
+{% endfor %}
+</nav>
