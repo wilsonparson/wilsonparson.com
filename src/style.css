@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.markdown h1 {
+  @apply text-4xl font-bold;
+}
+
+.markdown p {
+  @apply my-4;
+}
+
+.markdown a {
+  @apply bg-green-100 border-b border-black border-opacity-20 dark:bg-transparent dark:text-green-300 dark:border-b-0 dark:underline;
+}

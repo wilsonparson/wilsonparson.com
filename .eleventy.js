@@ -1,6 +1,8 @@
-module.exports = {
-  dir: {
-    input: 'src',
-    output: 'build',
-  },
+module.exports = function (eleventyConfig) {
+  return {
+    dir: {
+      input: 'src',
+      layouts: '_includes/layouts',
+    },
+  };
 };

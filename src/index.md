@@ -1,5 +1,5 @@
 ---
-layout: layout.11ty.js
+layout: base.njk
 title: Wilson Parson
 description: Wilson Parson's personal website.
 ---
