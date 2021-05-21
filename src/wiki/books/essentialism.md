@@ -15,9 +15,9 @@ title: Essentialism
 - You need a system to make essentialism as effortless as possible. Perhaps a checklist.
 - Analogy: your life = your closet.
 - Discerning trivial many from vital few. Ask these three questions:
-  - "What do I feel deeply inspired by?"
-  - "What am I particularly talented at?"
-  - "What meets a significant need in the world?"
+  1. "What do I feel deeply inspired by?"
+  2. "What am I particularly talented at?"
+  3. "What meets a significant need in the world?"
   
 ### Steps of Essentialism (also parts of this book)
 
