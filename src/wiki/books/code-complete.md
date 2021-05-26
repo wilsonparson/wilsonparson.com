@@ -125,4 +125,7 @@ I think the quote above also applies to being dogmatic about how exactly your co
 
 **Abstract Data Type** - a collection of data and operations that work on that data.
 
-Abstract data types help you "tap into the power of being able to work in the problem domain rather than at the low-level implementation domain" (p. 126).
+- Abstract data types help you "tap into the power of being able to work in the problem domain rather than at the low-level implementation domain" (p. 126).
+- Increases flexibility
+- Allows you to more easily change things in the future.
+- Can even use ADTs for very simple things.
