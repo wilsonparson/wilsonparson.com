@@ -1,6 +1,8 @@
 ---
 title: Habits
-slug: habits
+eleventyNavigation:
+  key: Habits
+  parent: Wiki
 ---
 
 ## Habits I'm working on

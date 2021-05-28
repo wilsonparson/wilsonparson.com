@@ -1,6 +1,7 @@
 ---
-slug: debugging
 title: Debugging
+eleventyNavigation:
+  key: Debugging
 ---
 
 ## Debug Client-side Code

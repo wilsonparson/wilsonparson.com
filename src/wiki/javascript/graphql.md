@@ -1,5 +1,7 @@
 ---
 title: GraphQL
+eleventyNavigation:
+  key: GraphQL
 ---
 
 ## Barebones Working GraphQL Setup

@@ -1,5 +1,7 @@
 ---
 title: 'Release It! Design and Deploy Production-Ready Software'
+eleventyNavigation:
+  key: Release it!
 ---
 
 ## Chapter 2 (about the airplane)

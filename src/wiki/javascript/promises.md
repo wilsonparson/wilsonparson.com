@@ -1,6 +1,7 @@
 ---
 title: Promises
-slug: promises
+eleventyNavigation:
+  key: Promises
 ---
 
 ## Calling `.then()` on a Promise that has already resolved

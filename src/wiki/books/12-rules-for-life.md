@@ -1,9 +1,10 @@
 ---
-slug: 12-rules-for-life
 title: 12 Rules for Life
-book_author: Jordan Peterson
-
+author: Jordan Peterson
+eleventyNavigation:
+  key: 12 Rules for Life
 ---
+
 ## Stand up straight with your shoulders back
 
 We have the ability to consciously overcome the natural tendency to shrink, slump our shoulders, and limit the release of serotonin. When we stand up straight (literally and figuratively), people around us treat us as someone who has dominance, which in turn helps us believe even more that we are strong and competent. This is a classic example of "fake it till you make it."

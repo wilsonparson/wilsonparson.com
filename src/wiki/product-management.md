@@ -1,6 +1,7 @@
 ---
-slug: product-management
 title: Product Management
+eleventyNavigation:
+  key: Product Management
 ---
 
 ## Notes from Will Cole (2021-03-30)

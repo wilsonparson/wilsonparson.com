@@ -1,6 +1,8 @@
 ---
 title: Sleeping Beauty (1959)
-slug: sleeping-beauty
+eleventyNavigation:
+  key: Sleeping Beauty
+  parent: Films
 tags:
   - questions
 ---

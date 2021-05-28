@@ -1,6 +1,7 @@
 ---
-slug: react
 title: React
+eleventyNavigation:
+  key: React
 ---
 
 ## React Tutorial

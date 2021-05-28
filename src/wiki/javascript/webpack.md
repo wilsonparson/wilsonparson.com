@@ -1,6 +1,7 @@
 ---
-slug: webpack
 title: Webpack
+eleventyNavigation:
+  key: Webpack
 ---
 
 ## Webpack Module Federation

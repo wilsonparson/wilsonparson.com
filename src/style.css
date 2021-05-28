@@ -2,14 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+.markdown {
+  @apply space-y-6;
+}
+
 .markdown h1 {
   @apply text-4xl font-bold;
 }
 
-.markdown p {
-  @apply my-4;
+.markdown h2 {
+  @apply text-3xl font-semibold;
+}
+
+.markdown h3 {
+  @apply text-2xl font-medium;
 }
 
 .markdown a {
   @apply bg-green-100 border-b border-black border-opacity-20 dark:bg-transparent dark:text-green-300 dark:border-b-0 dark:underline;
+}
+
+.markdown ul {
+  @apply list-disc ml-5;
 }

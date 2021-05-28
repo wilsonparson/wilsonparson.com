@@ -1,7 +1,8 @@
 ---
 title: Code Complete
-slug: code-complete
-book_author: Steve McConnell
+author: Steve McConnell
+eleventyNavigation:
+  key: Code Complete
 ---
 
 ## 5.3 Design Building Blocks: Heuristics
