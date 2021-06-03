@@ -16,7 +16,7 @@ eleventyNavigation:
 - It's not enough to identify which activities are your highest contributions. You also have to actively eliminate everything else.
 - You need a system to make essentialism as effortless as possible. Perhaps a checklist.
 - Analogy: your life = your closet.
-- Discerning trivial many from vital few. Ask these three questions:
+- Discerning trivial many from vital few. Ask [these three questions](three-questions.md):
   1. "What do I feel deeply inspired by?"
   2. "What am I particularly talented at?"
   3. "What meets a significant need in the world?"
