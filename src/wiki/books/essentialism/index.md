@@ -1,5 +1,5 @@
 ---
-title: Essentialism
+title: 'Essentialism: The Disciplined Pursuit of Less'
 eleventyNavigation:
   key: Essentialism
 
@@ -55,6 +55,20 @@ Need to replace these with:
 * If we surrender our ability to choose, something or someone else will choose for us.
 * We may not always be in control of our options, but we can always control how we choose among them.
 * Don't blindly follow a path prescribed by another person.
+
+#### Learned Helplessness
+
+When humans believe or feel that their actions don't have an impact, they respond in one of two ways:
+
+1. They check out. They give up on trying to do anything.
+2. They get hyperactive and try to do _everything_. They believe they don't have a choice in assignments or opportunities, and feel that they need to accept them all. 
+
+* To be an essentialist, you have to remember that your ability to choose is invincible. It can't be affected or taken away by anyone or anything.
+* Move from "I have to" to "I choose to"
+* If you forget your ability to choose, drip by drip you become a function of other people's choices, or even your own past choices.
+* Don't give others the power to choose for you.
+
+### Chapter 3: Discern: The Unimportance of Practically Everything
 
 > Continue here.
 
