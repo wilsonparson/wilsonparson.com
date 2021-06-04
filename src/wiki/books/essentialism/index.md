@@ -49,6 +49,13 @@ Need to replace these with:
 
 ### Chapter 2: Choose: The Invincible Power of Choice
 
+* "If you decide to stay in the US..."
+* It wasn't that he had decided that law school was the only option. It was that he had decided that no law school was _not_ an option.
+* He had chosen law school not because he wanted to be there, but by _default_.
+* If we surrender our ability to choose, something or someone else will choose for us.
+* We may not always be in control of our options, but we can always control how we choose among them.
+* Don't blindly follow a path prescribed by another person.
+
 > Continue here.
 
 ## Part II: Explore: How can we discern the trivial many from the vital few?
