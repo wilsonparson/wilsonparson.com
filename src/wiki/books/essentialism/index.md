@@ -94,14 +94,19 @@ When humans believe or feel that their actions don't have an impact, they respon
 * Totally clear about what they were (as a company), and what they weren't.
 * Other companies noticed their success, and tried to "straddle" their strategy, but failed.
 * "Ignoring the reality of trade-offs is a terrible strategy for organizations. It turns out to be a terrible strategy for people as well."
-
 * Stop telling yourself "I can do both."
 * "Saying yes to any opportunity by definition requires saying no to several others."
 * One area where I really need to learn the concept of "I can't do both" is with sleep.
-
-> Continue here.
+* Top execs are notorious for declaring everything as a top priority.
+* It's natural to try to avoid trade-offs, because we want to be able to say "yes" to all good things.
+* "There are no solutions. There are only trade-offs."
+* Though painful, trade-offs represent a significant opportunity. They can help us deliberately choose what we truly want.
+* Try to view trade-offs as an inherent part of life, not and inherently _negative_ part of life. Instead of thinking, "What do I want to give up?" Think, "What do I want to go big on?"
+* Elder Bednar recently spoke about how maintaining "life balance" is actually a myth. At any moment you're prioritizing one thing and neglecting another. He understands that trade-offs are a core component of life.
 
 ## Part II: Explore: How can we discern the trivial many from the vital few?
+
+> Continue here.
 
 ### Chapter 7: Play: Embrace the Wisdom of Your Inner Child
 
