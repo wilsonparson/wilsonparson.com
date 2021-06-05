@@ -61,7 +61,7 @@ Need to replace these with:
 When humans believe or feel that their actions don't have an impact, they respond in one of two ways:
 
 1. They check out. They give up on trying to do anything.
-2. They get hyperactive and try to do _everything_. They believe they don't have a choice in assignments or opportunities, and feel that they need to accept them all. 
+2. They get hyperactive and try to do _everything_. They believe they don't have a choice in assignments or opportunities, and feel that they need to accept them all.
 
 * To be an essentialist, you have to remember that your ability to choose is invincible. It can't be affected or taken away by anyone or anything.
 * Move from "I have to" to "I choose to"
@@ -70,7 +70,16 @@ When humans believe or feel that their actions don't have an impact, they respon
 
 ### Chapter 3: Discern: The Unimportance of Practically Everything
 
-> Continue here.
+* Boxer the horse. When things didn't turn out the way he hoped, he just worked harder, and nothing ever changed for him.
+* There is a point when doing more does not produce more.
+* Certain types of effort yield higher results than others.
+* Working hard is important. But more effort does not necessarily yield more results.
+* Pareto principle; 80/20 rule; Law of the Vital Few. This idea started the quality revolution in Japan.
+  * Similar: the "power law." Pareto principle but even to a greater degree. "Top software developers are more effective than the e average developer by a factor of 10,000x."
+* "Sometimes what you don't do is just as important as what you do."
+* "You cannot overestimate the unimportance of practically everything."
+* "Even the many good opportunities we pursue are often far less valuable than the few truly great ones."
+* Let go of the belief that everything is important.
 
 ## Part II: Explore: How can we discern the trivial many from the vital few?
 
