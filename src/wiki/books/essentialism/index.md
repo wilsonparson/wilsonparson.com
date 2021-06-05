@@ -81,6 +81,25 @@ When humans believe or feel that their actions don't have an impact, they respon
 * "Even the many good opportunities we pursue are often far less valuable than the few truly great ones."
 * Let go of the belief that everything is important.
 
+### Chapter 4: Trade-Off: Which Problem Do I Want?
+
+#### Case Study: Southwest Airlines
+
+* Most profitable stock you could have invested in from 1972-2002.
+* Deliberate trade-offs:
+  * Only point-to-point flights. You can't fly anywhere.
+  * No meals, in order to reduce ticket prices.
+  * Choose seats when you board.
+  * No first-class; only coach.
+* Totally clear about what they were (as a company), and what they weren't.
+* Other companies noticed their success, and tried to "straddle" their strategy, but failed.
+* "Ignoring the reality of trade-offs is a terrible strategy for organizations. It turns out to be a terrible strategy for people as well."
+
+* Stop telling yourself "I can do both."
+* "Saying yes to any opportunity by definition requires saying no to several others."
+
+> Continue here.
+
 ## Part II: Explore: How can we discern the trivial many from the vital few?
 
 ### Chapter 7: Play: Embrace the Wisdom of Your Inner Child
