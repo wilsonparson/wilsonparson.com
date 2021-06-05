@@ -97,6 +97,7 @@ When humans believe or feel that their actions don't have an impact, they respon
 
 * Stop telling yourself "I can do both."
 * "Saying yes to any opportunity by definition requires saying no to several others."
+* One area where I really need to learn the concept of "I can't do both" is with sleep.
 
 > Continue here.
 
