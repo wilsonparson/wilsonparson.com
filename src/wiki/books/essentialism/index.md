@@ -106,7 +106,7 @@ When humans believe or feel that their actions don't have an impact, they respon
 
 ## Part II: Explore: How can we discern the trivial many from the vital few?
 
-> Continue here.
+A paradox of essentialism is that Essentialists tend to explore _more_ options than Nonessentialists. The idea is that they do more research to decide what to go big on.
 
 ### Chapter 7: Play: Embrace the Wisdom of Your Inner Child
 
@@ -114,3 +114,16 @@ When humans believe or feel that their actions don't have an impact, they respon
 * Play is important not just as an antidote to stress. It also boosts creativity.
 * Mine your past for play memories. Do what you loved doing as a child.
 * Non-essentialists think that play is trivial. It's not.
+
+### Chapter 8: Sleep: Protect the Asset
+
+* _We_ are the very tool we need to make our highest contribution.
+* Ambitious, successful people have a tendency to damage the asset through lack of sleep.
+* For type A personalities, the challenge is not to push yourself to the limits, but to know when not to.
+* Perfect example of how more is not more: cutting down on sleep so you have more time in your day does not make you more effective.
+* "While there are clearly people who can survive on fewer hours of sleep, I've found that most of them are just so used to being tired that they have forgotten what it really feels like to be fully rested."
+* "Essentialists choose to do one fewer thing right now so they can do more tomorrow."
+* He shoots for 8 hours a night.
+* In a study, the best violinists slept 8.6 hours a day, and napped.
+
+> Continue here.
