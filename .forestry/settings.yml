@@ -4,6 +4,10 @@ auto_deploy: false
 admin_path: 
 webhook_url: 
 sections:
+- type: document
+  path: src/wiki/books/essentialism/index.md
+  label: Essentialism
+  match: "**/*"
 - type: directory
   path: src/wiki
   label: Wiki
