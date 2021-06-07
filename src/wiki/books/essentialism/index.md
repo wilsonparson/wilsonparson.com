@@ -16,7 +16,7 @@ eleventyNavigation:
 * It's not enough to identify which activities are your highest contributions. You also have to actively eliminate everything else.
 * You need a system to make essentialism as effortless as possible. Perhaps a checklist.
 * Analogy: your life = your closet.
-* Discerning trivial many from vital few. Ask [these three questions](three-questions.md):
+* Discerning trivial many from vital few. Ask [these three questions](three-questions):
   1. "What do I feel deeply inspired by?"
   2. "What am I particularly talented at?"
   3. "What meets a significant need in the world?"
@@ -107,6 +107,11 @@ When humans believe or feel that their actions don't have an impact, they respon
 ## Part II: Explore: How can we discern the trivial many from the vital few?
 
 A paradox of essentialism is that Essentialists tend to explore _more_ options than Nonessentialists. The idea is that they do more research to decide what to go big on.
+
+### Chapter 5: Escape: The Perks of Being Unavailable
+
+* We need space to escape to discern the trivial many from the vital few. We are so connected that we don't get this space by default—only by design.
+* Similar to the chapter on solitude in _Digital Minimalism_. Our brains _need_ solitude regularly in order to think our best thoughts.
 
 ### Chapter 7: Play: Embrace the Wisdom of Your Inner Child
 
