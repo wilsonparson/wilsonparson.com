@@ -151,5 +151,30 @@ A paradox of essentialism is that Essentialists tend to explore _more_ options t
 * "Essentialists choose to do one fewer thing right now so they can do more tomorrow."
 * He shoots for 8 hours a night.
 * In a study, the best violinists slept 8.6 hours a day, and napped.
+- At Google they have nap pods where you can schedule thirty minutes of sleep time.
+- Sleep deprivation compromises our ability to prioritize.
 
-> Continue here.
+### Chapter 9: Select: The Power of Extreme Criteria
+
+- "Hell yeah, or no." Another way of putting it is, "if it isn't a definite yes, then it should be a no."
+  - This is a good rule of thumb for minimalism.
+- 90 Percent Rule. You can rate every option between 0 and 100. And if it's below 90, automatically say no.
+  - You will realize that there are trade offs with this approach, and it's good to be aware of them.
+- Nonessentialist selection criteria:
+  - "If my manager asks me, I should do it."
+  - "If someone asks me to do something, I should try to do it."
+  - "If other people in the company are doing it, I should be doing it."
+- The idea of "if other people are doing it, I should do it" is a rabbit hole now that we have social media and we see _everything_ that _everyone_ does.
+- OKRs do a great job of guiding your selection criteria of what is essential and what is not.
+- "If it isn't a clear yes, then it's a clear no."
+- If we say yes to something just because it is an easy reward (a sale, a job offer, a timeshare at a discounted rate in a less-than-ideal location), we run the risk of having to later say no to a more meaningful one.
+- In _Good to Great_ by Jim Collins, he says that if there's one thing you're passionate about—and can be the best at—you should do _just that one thing_.
+- Idea for applying selection criteria to an opportunity:
+  - Write down the opportunity
+  - Write down three minimum criteria for you to consider the option (must haves)
+  - Write down three extreme/ideal criteria for you to consider the option
+  - The option needs to fulfill all of the minimum criteria and two of the three ideal criteria
+  
+## Part II: Eliminate: How Can We Cut Out the Trivial Many?
+
+`continue here`
