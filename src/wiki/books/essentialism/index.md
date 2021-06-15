@@ -121,7 +121,18 @@ A paradox of essentialism is that Essentialists tend to explore _more_ options t
   
 ### Chapter 6: Look: See What Really Matters
 
-Continue here.
+- Example with journalism class and writing a lead: "There will be no school Thursday."
+  - It's not just about regurgitating facts; it's about finding the _point_. It's about understanding what something really _means_, and _why it matters_.
+- Story of Florida plane crash. Green landing gear indicator light wasn't working, but the landing gear was. The pilots were so absorbed with the light not working that they didn't realize the plane was no longer on autopilot, and they crashed.
+- You can find "the lead" in any situation, even your personal life.
+- Essentialists are powerful listeners and observers. Sometimes the most important thing to glean is what is _not_ explicitly stated.
+- Listen for the signal amid the noise.
+- Keep a journal.
+  - "The faintest pencil is better than the strongest memory."
+  - Keep a "less, but better" mindset. Don't start out writing pages and pages, or you'll think of it as a daunting task to continue. Write less than you feel like writing. Restrain yourself until it becomes a daily habit.
+  - Every ninety or so days, spend an hour reading through it, and don't focus on the details, but try to find the headlines/leads.
+- Clarify the question your trying to answer, and the root problem you're trying to solve. It may be different than it seems at first.
+
 
 ### Chapter 7: Play: Embrace the Wisdom of Your Inner Child
 
