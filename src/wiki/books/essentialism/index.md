@@ -110,7 +110,18 @@ A paradox of essentialism is that Essentialists tend to explore _more_ options t
 
 ### Chapter 5: Escape: The Perks of Being Unavailable
 
-    Continue here
+- We need space to escape and step away from the routine and daily demands in order to discern the trivial many from the vital few.
+- We don't get that by default; we have to design it into our lives.
+- Nonessentialists are too busy to think about life; Essentialists make time to explore and think about life.
+- When people need to finish big projects, they often go into solitary confinement and cut off their internet access. How could I apply this methodology to web projects, when I _need_ the internet to do the project?
+- To write this book, he blocked out eight hours a day and worked on it from 5:00 a.m. to 1:00 p.m.
+- When's the last time you set aside time just to think?
+- Idea: start your day reading classic literature for 20 minutes. It centers you and helps you consider ideas that have withstood the test of time.
+  - He mentioned a bunch of books of scripture, including the Book of Mormon.
+  
+### Chapter 6: Look: See What Really Matters
+
+Continue here.
 
 ### Chapter 7: Play: Embrace the Wisdom of Your Inner Child
 
