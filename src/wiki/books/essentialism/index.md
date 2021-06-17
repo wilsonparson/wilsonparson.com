@@ -132,6 +132,7 @@ A paradox of essentialism is that Essentialists tend to explore _more_ options t
   - Keep a "less, but better" mindset. Don't start out writing pages and pages, or you'll think of it as a daunting task to continue. Write less than you feel like writing. Restrain yourself until it becomes a daily habit.
   - Every ninety or so days, spend an hour reading through it, and don't focus on the details, but try to find the headlines/leads.
 - Clarify the question your trying to answer, and the root problem you're trying to solve. It may be different than it seems at first.
+- 2021-06-16: While watching the Jazz lose another playoff game tonight I had a thought. Commentators keep talking about how the Jazz were the best team in the regular season because they had the best record. And I realized, literally _none_ of that matters if they can't win playoff games. They are weak where it matters. I want to be strong where it matters. I don't want to get caught up in the details and the best worker on those details; I want to be the best person at finishing full projects. I need to remember the big picture.
 
 
 ### Chapter 7: Play: Embrace the Wisdom of Your Inner Child
@@ -177,4 +178,14 @@ A paradox of essentialism is that Essentialists tend to explore _more_ options t
   
 ## Part II: Eliminate: How Can We Cut Out the Trivial Many?
 
-`continue here`
+You have to actively eliminate the non-essential in order to have time and space to contribute more to the essential.
+
+- Ask yourself, "If I didn't already own this, how much would I spend to buy it?" This general principle applies not just to physical things you own, but other areas or your life as well: "If I didn't have this opportunity, what would I be willing to do to acquire it?"
+- Every time you fail to say "no" to a non-essential, you are really saying "yes" by default.
+- Don't ask, "What, of my competing priorities, should I say yes to?" Ask, "What should I say no to?"
+
+### Chapter 10: Clarify: One Decision That Makes A Thousand
+
+- What do I really want out of my career over the next five years?
+  - I want to be a tech lead.
+  - I want a blog with at least 50 readers.
