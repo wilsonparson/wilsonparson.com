@@ -111,3 +111,46 @@ Major dangers to a system's longevity:
 - A slow connection is better than no connection.
 - `tcpdump` is a Unix command that has output similar to Wireshark.
 - A TCP connection can last for _days_ without either side sending any packets, as long as the two computers store the socket memory.
+- A firewall is a specialized router. It routes packets from one physical port to another. It checks incoming `SYN` packets against its internal rule base and decides to accept (and route) connections, reject connections, or ignore connections.
+- **The key point is that the firewall keeps track of connections for a limited period of time, but TCP can go forever. So a firewall might delete a connection if no packets are being sent through it, but TCP still thinks the connection is open.** So the TCP kept trying to send packets through the firewall, and nothing happened. The firewall wasn't even returning errors. They had to turn on _dead connection detection_ on the Oracle database, so that it would free up resources held by connections that were no longer responding.
+- **Not every problem can be solved at the level of abstraction where it manifests.**
+
+##### HTTP Protocols
+
+- Use a client library that allows fine-grained control over timeouts, including both the connection timeout and the read timeout.
+- Avoid client libraries that try to map responses directly into domain objects. Instead, treat it as "just data" until you've confirmed it meets your expectations.
+
+##### Vendor API Libraries
+
+- Software vendors provide API libraries that often have a lot of issues.
+- He keeps talking a lot about handling different threads and avoiding deadlock.
+
+##### Countering Integration Point Problems
+
+Most effective methods:
+
+- Circuit breaker (p. 95)
+- Decoupling middleware (p. 117)
+
+**Every integration point will fail in some way, and you need to be prepared for that failure.**
+
+You need to do more than handle error responses. You need to be able to handle slow responses and hangs, too.
+
+#### Chain Reactions
+
+- Horizontal scaling: add more servers (more common)
+- Vertical scaling: add more resources to the server
+
+If a defect causes a memory leak, and one server goes down, then the other servers in the farm have to add an extra burden, which makes them more likely to go down, all until the last one goes down.
+
+- One server down jeopardizes the rest.
+- Usually chain reactions occur when you have a resource/memory leak.
+- Autoscaling resource managers can recover from chain reactions, as long as they can decommission and pull up new servers faster than the chain reaction occurs.
+
+#### Cascading Failures
+
+- Stop cracks from jumping the gap from one system to another, usually when the calling system is insufficiently paranoid.
+
+#### Users
+
+> Continue on p. 51
