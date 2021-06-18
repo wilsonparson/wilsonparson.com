@@ -84,4 +84,30 @@ Major dangers to a system's longevity:
 - These are long-term, slow-burn events that are nearly impossible to catch in testing. Applications never run long enough in your development environment to reveal their longevity bugs.
 - You have to run your own longevity tests.
 
-#### Failure Modes
+### Chapter 4: Stability Antipatterns
+
+- Tight coupling allows cracks in one system to cross boundaries to other systems.
+
+#### Integration Points
+
+- Connections always outnumber the services.
+- "Integration points are the number one killer of systems."
+
+##### Socket-Based Protocols
+
+- Virtually all integration points are socket-based.
+- Simplest failure is a connection refusal.
+- "A new architect will focus on the boxes; and experienced one is more interested in the arrows."
+
+##### Transmission Control Protocol (TCP) Explained
+
+1. Client sends SYN to server
+2. Server sends SYN/ACK to client, which means it will accept connections
+3. Client sends ACK
+4. The two applications can now send data back and forth
+
+- The server has a listen queue, and if it gets full for some reason, it won't send SYN/ACK, so the caller has to wait until it gets around to responding or until the connection attempt times out, which usually takes **minutes**.
+- A similar thing happens when the server accepts connections but takes too long to process the request. The default is to just block forever while waiting for the server.
+- A slow connection is better than no connection.
+- `tcpdump` is a Unix command that has output similar to Wireshark.
+- A TCP connection can last for _days_ without either side sending any packets, as long as the two computers store the socket memory.
