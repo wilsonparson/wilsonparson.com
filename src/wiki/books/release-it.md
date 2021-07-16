@@ -200,3 +200,22 @@ Most network vendors have software to help prevent DDoS attacks.
 - Importance of supplementing internal monitors with external monitoring. Usually the server won't completely crash, but something will hang. When this occurs, the internal monitors might not recognize a problem. But if you have an external client making synthetic transactions and they start failing, you know that there is a problem.
 - From the user perspective, a hung system is de facto a crashed system.
 - It's extremely difficult to identify hung threads during development.
+- Always make sure to have timeouts in your code, even though it requires you to do more error handling.
+- Blocked threads are often caused by resource pools, and in particular database connection pools.
+
+#### Self-Denial Attacks
+
+- **Self-Denial Attack**: When the system, or larger system (including humans) conspires against itself.
+- Examples:
+  - Marketing sends an offer to a select group of users. The email gets forwarded to millions of people who try to redeem the coupon code.
+  - Electronics retailer sends marketing email for pre-orders of the Xbox 360, with exact details on the date that the official Xbox site would open for preorders. They included a deep link to the Xbox site, and after it launched, it crashed within 60 seconds because of how many visitors it had.
+- Really though, it often _does_ have to do with marketing.
+- How to avoid self-denial:
+  - "Shared nothing" architecture (each server can run without knowing anything about the other servers)
+  - "Pre-autoscale." Up your resources _before_ the marketing campaign is released
+
+#### Scaling Effects
+
+- Square-cube law: explains why you'll never see a spider the size of an elephant. By the time it gets large enough to weigh that much, the legs just wouldn't be able to support it.
+- Point-to-point communications (i.e., servers talking to each other). It's fine for a few services, but as you grow, and ever server needs to talk to every other server, it can crumble quickly.
+- Unrelated: XP principle: "Do the simplest thing that will work."
