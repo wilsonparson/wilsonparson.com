@@ -189,3 +189,4 @@ You have to actively eliminate the non-essential in order to have time and space
 - What do I really want out of my career over the next five years?
   - I want to be a tech lead.
   - I want a blog with at least 50 readers.
+- Strive for absolute clarity in your goals and purpose as a team (also applies to your personal life, though).
