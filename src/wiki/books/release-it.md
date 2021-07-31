@@ -101,9 +101,9 @@ Major dangers to a system's longevity:
 
 ##### Transmission Control Protocol (TCP) Explained
 
-1. Client sends SYN to server
-2. Server sends SYN/ACK to client, which means it will accept connections
-3. Client sends ACK
+1. Client sends SYN (Synchronize) to server
+2. Server sends SYN/ACK (Synchronize/Acknowledgment) to client, which means it will accept connections
+3. Client sends ACK (Acknowledgment)
 4. The two applications can now send data back and forth
 
 - The server has a listen queue, and if it gets full for some reason, it won't send SYN/ACK, so the caller has to wait until it gets around to responding or until the connection attempt times out, which usually takes **minutes**.
@@ -119,6 +119,9 @@ Major dangers to a system's longevity:
 
 - Use a client library that allows fine-grained control over timeouts, including both the connection timeout and the read timeout.
 - Avoid client libraries that try to map responses directly into domain objects. Instead, treat it as "just data" until you've confirmed it meets your expectations.
+- Unexpected response body is a common problem:
+  - Experian Login page
+  - HTML page when JSON is expected
 
 ##### Vendor API Libraries
 
@@ -143,7 +146,7 @@ You need to do more than handle error responses. You need to be able to handle s
 
 If a defect causes a memory leak, and one server goes down, then the other servers in the farm have to add an extra burden, which makes them more likely to go down, all until the last one goes down.
 
-- One server down jeopardizes the rest.
+- One server down jeopardizes the rest. And generally the failures accelerate as more servers go down.
 - Usually chain reactions occur when you have a resource/memory leak.
 - Autoscaling resource managers can recover from chain reactions, as long as they can decommission and pull up new servers faster than the chain reaction occurs.
 
@@ -153,4 +156,66 @@ If a defect causes a memory leak, and one server goes down, then the other serve
 
 #### Users
 
-> Continue on p. 51
+##### Traffic
+
+How does your system react to excessive demand?
+
+This is where running in the cloud is your friend, because you can autoscale. But it is pretty easy to rack up a huge bill because of a buggy application.
+
+Stateful sessions can lead to situations where the server runs out of memory by holding everyone's session data. This is why stateless sessions are nice.
+
+If you _have_ to keep data in the session, you should use weak references, which allow the garbage collector to eat them up when it needs more memory. And then you just need to make sure that the caller knows how to deal with a `null`.
+
+##### Off-Heap Memory, Off-Host Memory
+
+Memcached and Redis are popular tools for moving memory outside of your process. Many systems use Redis to store session data.
+
+##### Expensive to Serve
+
+Have load tests for your expensive transactions, or expensive user flows (when the user is doing a lot of stuff).
+
+Expensive users are usually the ones that bring you the most revenue, because they're interacting with your system.
+
+##### Unwanted Users
+
+Sessions are the Achilles' heel of web applications. If you pick a deep link from a site and start sending requests to it over and over without cookies, it'll create a new session for every request.
+
+There's an entire industry built on the idea of consuming resources from other companies' websites, called _competitive intelligence_. Bots & scrapers.
+
+###### Session Tracking: Cookies
+
+HTTP is stateless, so even if the same person makes the same request over and over, the server doesn't know that it's coming from the same place. Netscape found a way to add a little extra data into the protocol, called Cookies. Cookies are mostly used to mantain the idea of a session.
+
+##### Malicious Users
+
+- **Advanced persistent threat** - a user who continues to research your defenses and keeps trying to bring your site down. It's pretty much guaranteed that you'll be breached by this kind of attacker.
+- **Script kiddies** - people who probe your site for fun.
+
+Most common attack is the distributed denial-of-service (DDoS) attack. The attacker causes many computers to start generating load on your site. They usually use a botnet, which is a computer that issues commands to a bunch of other compromised computers.
+
+Most network vendors have software to help prevent DDoS attacks.
+
+#### Blocked Threads
+
+- Importance of supplementing internal monitors with external monitoring. Usually the server won't completely crash, but something will hang. When this occurs, the internal monitors might not recognize a problem. But if you have an external client making synthetic transactions and they start failing, you know that there is a problem.
+- From the user perspective, a hung system is de facto a crashed system.
+- It's extremely difficult to identify hung threads during development.
+- Always make sure to have timeouts in your code, even though it requires you to do more error handling.
+- Blocked threads are often caused by resource pools, and in particular database connection pools.
+
+#### Self-Denial Attacks
+
+- **Self-Denial Attack**: When the system, or larger system (including humans) conspires against itself.
+- Examples:
+  - Marketing sends an offer to a select group of users. The email gets forwarded to millions of people who try to redeem the coupon code.
+  - Electronics retailer sends marketing email for pre-orders of the Xbox 360, with exact details on the date that the official Xbox site would open for preorders. They included a deep link to the Xbox site, and after it launched, it crashed within 60 seconds because of how many visitors it had.
+- Really though, it often _does_ have to do with marketing.
+- How to avoid self-denial:
+  - "Shared nothing" architecture (each server can run without knowing anything about the other servers)
+  - "Pre-autoscale." Up your resources _before_ the marketing campaign is released
+
+#### Scaling Effects
+
+- Square-cube law: explains why you'll never see a spider the size of an elephant. By the time it gets large enough to weigh that much, the legs just wouldn't be able to support it.
+- Point-to-point communications (i.e., servers talking to each other). It's fine for a few services, but as you grow, and ever server needs to talk to every other server, it can crumble quickly.
+- Unrelated: XP principle: "Do the simplest thing that will work."
