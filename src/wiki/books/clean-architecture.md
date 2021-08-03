@@ -71,3 +71,15 @@ Good developers unabashedly squabble with other stakeholders as equals over arch
 - That's the true power of OOP.
 - "OO is the ability, through the use of polymorphism, to gain absolute control over every source code dependency in the system."
 - OO allows us to use plugin architecture, where the different drivers and frameworks can plug into our business rules.
+
+## Ch. 6: Functional Programming
+
+- Variables do not change.
+- All race conditions, deadlock conditions, and concurrent update problems are due to mutable variables.
+- The more memory we have, and the faster our machines are, the less we need mutable state.
+
+### Event Sourcing
+
+- A strategy where you store the transactions, but not the state. When the state is needed, you just apply all the transactions.
+- An example would be a bank account that doesn't store the mutable balance, but when the balance is required, it takes the sum of all the transactions that have ever occurred.
+- This is how Git works.
