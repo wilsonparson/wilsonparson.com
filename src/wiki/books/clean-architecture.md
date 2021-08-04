@@ -94,3 +94,70 @@ Good developers unabashedly squabble with other stakeholders as equals over arch
 - The next level up is apparently called "components."
 - I didn't realize it was Uncle Bob himself that coined the SOLID acronym.
 - He doesn't cover them in detail here, but he does in _Agile Software Development, Principles, Patterns, and Practices_.
+
+## Ch. 7: The Single Responsibility Principle
+
+Least well understood principle. **Not** "every module should do just one thing" (although there _is_ a principle like that). The main thing to keep in mind here is that it's literally about avoiding having two devs work in the same file to fulfill requests for different actors.
+
+Historical description: "A module should have one, and only one, reason to change." The "reason to change" is users and stakeholders. So, worded another way: "A module should be responsible to one, and only one, user or stakeholder."
+
+But there will likely be more than one actual stakeholder or user that wants the system changed in the same way. So we can use the word "actor" to refer to a group of users or stakeholders, resulting in the final version:
+
+> A module should be responsible to one, and only one, actor.
+
+Module = a source file.
+
+Easier to understand principle if you look at symptoms of violating it.
+
+### Symptom 1: Accidental Duplication
+
+```typescript
+class Employee {
+  calculatePay() {}
+  
+  reportHours() {}
+  
+  save() {}
+}
+```
+
+- `calculatePay` is responsible to accounting/CFO.
+- `reportHours` is responsible to HR/COO.
+- `save` is responsible to DBAs/CTO.
+
+Putting these methods in the same class couples the three actors, so that the actions of one team could affect another. If the methods rely on shared functionality, then a request from one actor might require a change to the shared functionality, which will break the experience for another actor without them even knowing about the change.
+
+**Separate the code that different actors depend on.**
+
+### Symptom 2: Merges
+
+Different actors could request changes to the same source file for different reasons, resulting in a merge conflict between teams.
+
+### Solutions
+
+```typescript
+class PayCalculator {
+  calculatePay(employeeData) {}
+}
+
+class HourReporter {
+  reportHours(employeeData) {}
+}
+
+class EmployeeSaver {
+  save(employeeData) {}
+}
+
+// If you don't want to instantiate and keep track of a bunch of separate classes,
+// you can reunify them via a facade.
+class EmployeeFacade() {
+  save(employeeData) {
+    employeeSaver.save();
+  }
+  // etc.
+}
+```
+
+### Additional Notes
+
+This works well in Node.js, since each file is actually called a module. Basically, make sure that each module is only responsible to one actor, and one actor only.
