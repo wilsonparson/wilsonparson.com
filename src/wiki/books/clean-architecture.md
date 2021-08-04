@@ -83,3 +83,14 @@ Good developers unabashedly squabble with other stakeholders as equals over arch
 - A strategy where you store the transactions, but not the state. When the state is needed, you just apply all the transactions.
 - An example would be a bank account that doesn't store the mutable balance, but when the balance is required, it takes the sum of all the transactions that have ever occurred.
 - This is how Git works.
+
+---
+
+## Part III: Design Principles
+
+- SOLID applies to all code, not just OO code.
+- Every software system allows grouping of data and functions, even if they aren't specifically called classes.
+- These principles are for mid-level software; they're for programmers working at the module level.
+- The next level up is apparently called "components."
+- I didn't realize it was Uncle Bob himself that coined the SOLID acronym.
+- He doesn't cover them in detail here, but he does in _Agile Software Development, Principles, Patterns, and Practices_.
