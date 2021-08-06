@@ -219,3 +219,37 @@ Most network vendors have software to help prevent DDoS attacks.
 - Square-cube law: explains why you'll never see a spider the size of an elephant. By the time it gets large enough to weigh that much, the legs just wouldn't be able to support it.
 - Point-to-point communications (i.e., servers talking to each other). It's fine for a few services, but as you grow, and ever server needs to talk to every other server, it can crumble quickly.
 - Unrelated: XP principle: "Do the simplest thing that will work."
+
+#### Unbalanced Capacities
+
+- You need to actually test scenarios where your service gets overloaded with requests to make sure your front end degrades gracefully.
+- For front end, test what happens when calls to the back end stop responding or get very slow.
+
+#### Dogpile
+
+- We can learn a lot from how power is restored after a power outage. In the past, the surge of demand would often cause the power to go out only seconds after it was restored, because it would trip all the circuit breakers.
+- **Dogpile**: when a bunch of servers impose a load all at once.
+- Some common triggers:
+  - Booting multiple servers at once
+  - Running all cron jobs at the same time
+  - When you push a config change to a bunch of places 
+  
+#### Force Multiplier
+
+- Automated scaling can multiply mistakes, if it doesn't have the same beliefs about the state of the system that you do.
+- Reddit had an outage because they turned off their auto scaler to upgrade a Zookeeper cluster. The package management system noticed that auto scaling was disabled and re-enabled it. The autoscaler then looked at the incomplete Zookeeper data and assumed that the services should be shut down to save money, causing the outage.
+- Service discovery systems. If one of the nodes somehow loses contact with the services, it'll inform the other nodes that everything is down, and the other nodes will believe it.
+- Make sure your infrastructure/auto scaling has controls that prevent it from multiplying force. Remember that infrastructure has beliefs about the state of the system and the desired state, and that they can be wrong.
+
+#### Slow Responses
+
+- Often symptoms of memory leaks
+
+#### Unbounded Result Sets
+
+- Design with cynicism: "What can system X do to hurt me?"
+- Always include limits to DB queries.
+- The caller should always indicate how much of a response it's prepared to accept.
+- Develop and test with realistic data volumes. Dev and QA datasets are generally too small.
+- Paginate results
+
