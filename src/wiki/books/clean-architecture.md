@@ -161,3 +161,35 @@ class EmployeeFacade() {
 ### Additional Notes
 
 This works well in Node.js, since each file is actually called a module. Basically, make sure that each module is only responsible to one actor, and one actor only.
+
+## Ch. 8: OCP: The Open-Closed Principle
+
+> A software artifact should be open for extension but closed for modification.
+
+- You should be able to change an artifact's behavior without changing it directly. This is the most fundamental reason that we study software architecture.
+- The OCP guides us in designing classes and modules, but also at a higher level of components.
+- A good software architecture would reduce the amount of changed code when a feature is added. Ideally, you should only have to add new code, and change zero code.
+
+### Example: Financial Reporting Software
+
+(See diagram on p. 72)
+
+- **Interactor** - Gets data via `FinancialDataGateway` interface. Uses financial entities to generate the financial report. All dependencies flow to it. Receives financial report requests from **Controller** and returns responses. We protect the Interactor from all changes **because it contains the business rules, the highest level polices, the central concern.**
+- **Controller** - Sends requests for financial reports to **Interactor**. Uses `FinancialReportPresenter` interface to pass the generated report to a presenter.
+- **Presenter** - Implements `FinancialReportPresenter` interface. In this case we have two concrete presenters which fulfill that interface: `ScreenPresenter` and `PrintPresenter`. Each concrete presenter uses its own view model, and passes it to the view via an interface.
+- **View** - Implements an interface that the presenter refers to. Builds the view.
+
+All component dependency relationships are unidirectional. The dependency arrows point towards the components we want to protect from change.
+
+"If component A should be protected from changes in component B, then component B should depend on component A."
+
+"Architects separate functionality based on how, why, and when it changes, and then organize that separated functionality into a hierarchy of components. Higher-level components in that hierarchy are protected from the changes made to lower-level components."
+
+In other words, the key to architecture is optimizing for change.
+
+### Transitive Dependencies
+
+Transitive dependencies are a violation of the general principle that software entities should not depend on things they don't directly use.
+
+## Ch. 9: The Liskov Substitution Principle
+
