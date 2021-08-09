@@ -95,7 +95,7 @@ Good developers unabashedly squabble with other stakeholders as equals over arch
 - I didn't realize it was Uncle Bob himself that coined the SOLID acronym.
 - He doesn't cover them in detail here, but he does in _Agile Software Development, Principles, Patterns, and Practices_.
 
-## Ch. 7: The Single Responsibility Principle
+## Ch. 7: SRP: The Single Responsibility Principle
 
 Least well understood principle. **Not** "every module should do just one thing" (although there _is_ a principle like that). The main thing to keep in mind here is that it's literally about avoiding having two devs work in the same file to fulfill requests for different actors.
 
@@ -191,5 +191,102 @@ In other words, the key to architecture is optimizing for change.
 
 Transitive dependencies are a violation of the general principle that software entities should not depend on things they don't directly use.
 
-## Ch. 9: The Liskov Substitution Principle
+## Ch. 9: LSP: The Liskov Substitution Principle
 
+- If we substitute a superclass object reference with an object of any of its subclasses, the program should not break.
+- You should be able to substitute subtypes for base types.
+- **The Square/Rectangle Problem** - The calling code needs to contain an if statement checking whether the rectangle is actually a square, so it violates the LSP.
+- Originally thought of as a guide for the use of inheritance. But now it has grown to be used more broadly from and architectural standpoint. The main idea is that users depend on well-defined interfaces, and you should be able to substitute the implementation of those interfaces without breaking anything.
+- Basically, any time you need to add a special conditional that does something differently given a certain type, that's probably a sign that the LSP has been violated.
+
+## Ch. 10: ISP: The Interface Segregation Principle
+
+If class A only calls one method of class B, but it references a concrete instance of class B, then class A will need to be recompiled every time a change is made to any methods on class B—even methods that class A doesn't call. But if you have class B implement an interface that class A uses, you only need to recompile class A if you change the interface. Better yet, if you separate out interfaces (instead of just one huge interface for class A), then there's an even smaller chance that B will need to recompile.
+
+### Examples
+
+In this scenario below, every time I make a change to `Ops.op3`, I need to recompile `User1`, `User2`, and `User3`:
+
+```typescript
+class Ops {
+  op1() {}
+  op2() {}
+  op3() {}
+}
+
+class User1 {
+  constructor(private ops: Ops) {}
+  
+  exec() {
+    this.ops.op1();
+  }
+}
+
+class User2 {
+  constructor(private ops: Ops) {}
+  
+  exec() {
+    this.ops.op2();
+  }
+}
+
+class User3 {
+  constructor(private ops: Ops) {}
+  
+  exec() {
+    this.ops.op3();
+  }
+}
+```
+
+The interface segregation principle tells me to use separate interfaces, so that `User1` doesn't need to depend on `Ops.op3` if it doesn't call it:
+
+```typescript
+interface Op1 {
+  op1(): void;
+}
+
+interface Op2 {
+  op2(): void;
+}
+
+interface Op3 {
+  op3(): void;
+}
+
+class Ops implements Op1, Op2, Op3 {
+  op1() {}
+  op2() {}
+  op3() {}
+}
+
+class User1 {
+  constructor(private ops: Op1) {}
+  
+  exec() {
+    this.ops.op1();
+  }
+}
+
+class User2 {
+  constructor(private ops: Op2) {}
+  
+  exec() {
+    this.ops.op2();
+  }
+}
+
+class User3 {
+  constructor(private ops: Op3) {}
+  
+  exec() {
+    this.ops.op3();
+  }
+}
+```
+
+This business of forcing recompiling is not an issue in JavaScript, Ruby, and Python, because they are dynamically typed. This allows them to be more loosely coupled than statically typed languages. So why care about this rule?
+
+There's a theme here that touches on architecture, not just code compilation. The theme is that **in general, it is harmful to depend on modules that contain more than you need**.
+
+## Ch. 11: DIP: The Dependency Inversion Principle
