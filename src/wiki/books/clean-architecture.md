@@ -114,9 +114,9 @@ Easier to understand principle if you look at symptoms of violating it.
 ```typescript
 class Employee {
   calculatePay() {}
-  
+
   reportHours() {}
-  
+
   save() {}
 }
 ```
@@ -216,7 +216,7 @@ class Ops {
 
 class User1 {
   constructor(private ops: Ops) {}
-  
+
   exec() {
     this.ops.op1();
   }
@@ -224,7 +224,7 @@ class User1 {
 
 class User2 {
   constructor(private ops: Ops) {}
-  
+
   exec() {
     this.ops.op2();
   }
@@ -232,7 +232,7 @@ class User2 {
 
 class User3 {
   constructor(private ops: Ops) {}
-  
+
   exec() {
     this.ops.op3();
   }
@@ -262,7 +262,7 @@ class Ops implements Op1, Op2, Op3 {
 
 class User1 {
   constructor(private ops: Op1) {}
-  
+
   exec() {
     this.ops.op1();
   }
@@ -270,7 +270,7 @@ class User1 {
 
 class User2 {
   constructor(private ops: Op2) {}
-  
+
   exec() {
     this.ops.op2();
   }
@@ -278,7 +278,7 @@ class User2 {
 
 class User3 {
   constructor(private ops: Op3) {}
-  
+
   exec() {
     this.ops.op3();
   }
@@ -299,6 +299,8 @@ This principle doesn't apply to concrete elements that are very stable, like bui
 
 Every change to an interface corresponds to a change in the implementation of the interface, but the opposite is not true. You can make all kinds of changes to the class without changing the interface.
 
+The flow of control goes in the opposite direction of the source code dependencies. **This is why it's called the Dependency Inversion Princple.** The concrete classes depend on the abstractions, but flow of control is passed to the concrete classes.
+
 ### Coding practices from this principle
 
 - **Don't refer to volatile concrete classes.** This puts severe constraints on the creation of objects, and generally enforced the use of _Abstract Factories_.
@@ -308,3 +310,97 @@ Every change to an interface corresponds to a change in the implementation of th
 
 ### Factories
 
+In general, you should try to limit the creation of volatile objects to low-level detail files, like the `main` function or the `index` file in JavaScript. Here's a code example that mirrors the diagram he shows in the book on page 90:
+
+#### `index.ts`
+
+This is the file where everything comes together. It is the `main` function that creates the concrete implementations.
+
+```typescript
+import { Application } from './application';
+import { ServiceFactory } from './service-factory';
+import { ServiceFactoryImpl } from './service-factory-impl';
+
+const serviceFactory: ServiceFactory = new ServiceFactoryImpl();
+
+const app = new Application(serviceFactory);
+
+app.service.doThing();
+```
+
+#### `application.ts`
+
+This is where all the business rules live, so this file shouldn't contain any imports of concrete classes. It only imports interfaces. It receives concrete objects at runtime via its constructor.
+
+```typescript
+import { Service } from './service';
+import { ServiceFactory } from './service-factory';
+
+export class Application {
+  service: Service;
+
+  constructor(private serviceFactory: ServiceFactory) {
+    this.service = this.serviceFactory.makeSvc();
+  }
+}
+```
+
+#### `service-factory.ts`
+
+Interface. Only depends on the service interface.
+
+```typescript
+import { Service } from './service';
+
+export interface ServiceFactory {
+  makeSvc(): Service;
+}
+```
+
+#### `service.ts`
+
+```typescript
+export interface Service {
+  doThing(): void;
+}
+```
+
+#### `service-factory-impl.ts`
+
+This violates the DIP because it imports a concrete class. This is normal and necessary. You have to declare concrete classes at some point, but the goal of the principle is to not have your higher-level classes rely on concretions.
+
+```typescript
+import { Service } from './service';
+import { ServiceFactory } from './service-factory';
+import { ConcreteImpl } from './concrete-impl';
+
+export class ServiceFactoryImpl implements ServiceFactory {
+  makeSvc(): Service {
+    return new ConcreteImpl();
+  }
+}
+```
+
+#### `concrete-impl.ts`
+
+```typescript
+import { Service } from './service';
+
+export class ConcreteImpl implements Service {
+  doThing(): void {
+    console.log('it did the thing');
+  }
+}
+```
+
+### Concrete Components
+
+"DIP violations cannot be entirely removed, but they can be gathered into a small number of concrete components and kept separate from the rest of the system."
+
+The best place for this kind of code is in the `main` function.
+
+## Part IV: Component Principles
+
+SOLID principles tell us how to arrange bricks into walls; component principles tell us how to arrange rooms into buildings.
+
+## Ch. 12: Components
