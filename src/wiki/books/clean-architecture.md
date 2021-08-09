@@ -290,3 +290,21 @@ This business of forcing recompiling is not an issue in JavaScript, Ruby, and Py
 There's a theme here that touches on architecture, not just code compilation. The theme is that **in general, it is harmful to depend on modules that contain more than you need**.
 
 ## Ch. 11: DIP: The Dependency Inversion Principle
+
+"The most flexible systems are those in which source code dependencies refer only to abstractions, not to concretions."
+
+In other words, your `import` statements should refer only to modules containing interfaces, and nothing concrete.
+
+This principle doesn't apply to concrete elements that are very stable, like built-in types in your language, but to concrete elements that frequently change.
+
+Every change to an interface corresponds to a change in the implementation of the interface, but the opposite is not true. You can make all kinds of changes to the class without changing the interface.
+
+### Coding practices from this principle
+
+- **Don't refer to volatile concrete classes.** This puts severe constraints on the creation of objects, and generally enforced the use of _Abstract Factories_.
+- **Don't derive from volatile concrete classes.** This one is especially important, because inheritance is the strongest, and most rigid, of all source code relationships.
+- **Don't override concrete functions.** Instead, make the function abstract and create multiple implementations.
+- **Never mention the name of anything concrete and volatile.**
+
+### Factories
+
