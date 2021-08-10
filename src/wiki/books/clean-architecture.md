@@ -403,4 +403,26 @@ The best place for this kind of code is in the `main` function.
 
 SOLID principles tell us how to arrange bricks into walls; component principles tell us how to arrange rooms into buildings.
 
-## Ch. 12: Components
+## Ch. 13: Component Cohesion
+
+### The Reuse/Release Equivalence Principle
+
+Components should have an overarching theme or purpose that all of its classes and functions share, such that it should make sense to release the whole thing as a package version.
+
+### The Common Closure Principle
+
+"Gather into components those classes that change for the some reasons and at the same times. Separate into different components those classes that change at different times and for different reasons."
+
+This is the Single Responsibility Principle, applied to components. A component should not have multiple reasons to change.
+
+### The Common Reuse Principle
+
+"Don't force users of a component to depend on things they don't need."
+
+When a class in one component uses a class in another component, there is a dependency. Component A will need to change or at least be redeployed when Component B changes, even if Component A doesn't care about the changes in Component B.
+
+The goal is that if you have one component depending on another, you depend on **all** of the classes in that component.
+
+It should be impossible to depend on some classes in a component and not others.
+
+It's the Interface Segregation Principle, applied to components.
