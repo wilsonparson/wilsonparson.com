@@ -426,3 +426,92 @@ The goal is that if you have one component depending on another, you depend on *
 It should be impossible to depend on some classes in a component and not others.
 
 It's the Interface Segregation Principle, applied to components.
+
+## Ch. 14: Component Coupling
+
+### The Acyclic Dependencies Principle
+
+- Allow no cycles in the component dependency graph.
+- For every component, you should be able to follow the dependency lines and not end up back at that component.
+- When you have a dependency cycle, all the included components basically become one large component.
+- Red flag is when you have to import a ton of other dependencies just to run unit tests.
+- To break the cycle, apply the Dependency Inversion Principle.
+
+---
+
+- Component dependency diagrams are _not_ about what the system can do. They are about how to maintain it.
+
+---
+
+### The Stable Dependencies Principle
+
+Depend in the direction of stability.
+
+---
+
+_Skipping way ahead to the actual parts of the clean architecture..._
+
+---
+
+## Ch. 20: Business Rules
+
+- **Business rules** - rules or procedures that make or save the business money.
+- **Critical business rules** - rules that are critical to the business itself, and would exist even if there were no system to automate them.
+- **Critical business data** - data that would exist even if the system were not automated.
+- **Entity** - collection of business rules and data in a single object. "An object within our computer system that embodies a small set of critical business rules operating on critical business data.
+
+### Example entity 
+
+```typescript
+class Loan {
+  principle: number;
+  rate: number;
+  period: number;
+  makePayment() {};
+  applyInterest() {};
+  chargeLateFee() {};
+}
+```
+
+"Entity is pure business and nothing else."
+
+It doesn't need to be OOP. All that is required is that you put data and business logic in the same module.
+
+### Use Cases
+
+- Business rules that define the way an **automated** system operates.
+- These rules would not be used in a manual environment, because they only make sense as part of an automated system.
+- Specifies the input provided by the user, the output returned to the user, and the processing steps involved in producing that output.
+- Use cases contain the rules that specify how and when the Critical Business Rules within the Entities are invoked.
+- "Use cases control the dance of the entities."
+- Use cases do not describe how the system appears to the user. They describe the application-specific rules that govern the interaction between users and the Entities.
+- How data gets in and out of the system is irrelevant to use cases.
+- A use case is an object. It has functions that implement the application-specific business rules, and data elements that include the input data, output data, and references to the entities with which it interacts.
+- Entities have no knowledge of use cases.
+
+#### Example Use Case
+
+> **Gather Contact Info for New Loan**
+> 
+> Input: Name, Address, Birthdate, DL, SSN, etc.
+> Output: Same info for read back + credit score.
+>
+> Primary Course:
+> 1. Accept and validate name.
+> 2. Validate address, birthdate, DL, SSN, etc.
+> 3. Get credit score
+> 4. If credit score < 500 activate Denial.
+> 5. Else create Customer and activate Loan Estimation.
+
+#### Request and Response models
+
+- Use case takes input data and returns output data, but it has no knowledge of how the data will be communicated to the user.
+- These must be simple data structures with no dependencies at all.
+- You might be tempted to reference Entities in them, but don't! They will change for very different reasons so that would violate the SRP.
+
+## Ch. 21: Screaming Architecture
+
+"If your architecture is based on frameworks, then it cannot be based on use cases."
+
+## Ch. 22: The Clean Architecture 
+
