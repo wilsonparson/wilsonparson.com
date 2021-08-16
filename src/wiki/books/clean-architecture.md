@@ -515,3 +515,66 @@ It doesn't need to be OOP. All that is required is that you put data and busines
 
 ## Ch. 22: The Clean Architecture 
 
+### Entities
+
+- Encapsulate enterprise-wide Critical Business Rules.
+- Can be an object with methods, or it can be a set of data structures and functions. (So this works with FP as well.)
+- If there's no enterprise, and you're just writing a single app, then the entities are the business objects of the app.
+- Most general and high-level rules.
+- Least affected by external changes.
+
+### Use Cases
+
+- _Application-specific_ business rules.
+- Orchestrate flow of data to and from the entities.
+- Tell entities to use their Critical Business Rules to achieve the goals of the use case.
+- Changes in this layer shouldn't affect entities.
+- This layer shouldn't be affected by changes to externalities like the database, UI, etc.
+- This layer will change when there are changes to the operation of the application.
+
+### Interface Adapters
+
+- Adapters that convert data from the format most convenient for the use cases and entities, to the format most convenient for some external agency like the database or the web.
+- This layer would be wholly responsible for the MVC architecture of a GUI.
+- All database code should go here.
+
+### Frameworks and Drivers
+
+- Tools like the database or a web framework.
+- You don't write much code in this layer, aside from glue code that communicates to the next inward circle.
+- This is the layer where all the details go.
+
+### Crossing Boundaries
+
+In the example diagram, the flow of control goes:
+
+```
+Controller -> Use Case -> Presenter
+```
+
+But even though the flow of control moves from the use case to the presenter, the **use case doesn't know about the presenter**. The use case doesn't call the presenter; it calls an interface that the presenter implements.
+
+### Which Data Crosses the Boundaries
+
+- Simple data structures
+  - Data transfer objects
+  - Simple struts
+  - Even just arguments in function calls (if you're doing this with FP)
+- Must be isolated, simple data structures
+- Don't cheat and pass Entity objects or database rows
+- The data structures shouldn't have any dependencies
+- **"When we pass data across a boundary, it is always in the form that is most convenient for the inner circle."**
+
+### A Typical Scenario
+
+1. Web server gathers input data from user, and hands it to the `Controller`
+2. `Controller` formats data into plain object and passes it through the `InputBoundary` to the `UseCaseInteractor`
+3. The `UseCaseInteractor`...
+  1. interprets the data and uses it to control the dance of the `Entities`
+  2. Uses the `DataAccessInterface` to get the data uses by the `Entities` from the `Database` and into memory
+4. The `UseCaseInteractor` gathers data from the `Entities` and constructs the `OutputData` as another plain object.
+5. The `UseCaseInteractor` passes the `OutputData` through the `OutputBoundary` interface to the `Presenter`.
+6. The `Presenter` packages the `OutputData` into viewable form as the `ViewModel` (another plain object). (Transforms dates and currency into string format ready to be displayed.)
+7. The `View` moves the data from the `ViewModel` into the `HTML` page.
+
+## Ch. 23: Presenters and Humble Objects 
