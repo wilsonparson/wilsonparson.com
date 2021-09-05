@@ -578,3 +578,34 @@ But even though the flow of control moves from the use case to the presenter, th
 7. The `View` moves the data from the `ViewModel` into the `HTML` page.
 
 ## Ch. 23: Presenters and Humble Objects 
+
+### The Humble Object Pattern
+
+The idea is that you separate hard-to-test behaviors from easy-to-test behaviors, and put them in separate modules. Then you can test the one with the easy-to-test behaviors.The "humble object" is the module that is hard to test.
+
+### Presenters and Views
+
+- The View is the humble object that is hard to test. The code in this module is as simple as possible. It moves data into the GUI but doesn't process that data at all.
+- The Presenter is the testable object. It takes data from the application and formats it so that the View doesn't have to do anything but place it in the GUI.
+- Example: The application will pass a `Date` object to the `Presenter`. The `Presenter` will format it as a string before passing it to the `View` via the `ViewModel`.
+
+### Testing and Architecture
+
+- Testability is an attribute of good architectures.
+
+### Database Gateways
+
+- The database gateway sits between the Use Case Interactors and the Database.
+- It's a polymorphic interface with methods for every create, read, update, or delete operation that the application can perform on the database.
+- Example method: `getLastNamesOfUsersWhoLoggedInAfter(date: Date)`.
+- Here the database gateway is the humble object. It should just contain SQL.
+- The testable object is the interactor, because it contains business logic.
+- ORMs belong in the Database layer.
+
+### Conclusion
+
+**At each architectural boundary we are likely to find the _Humble Object_ pattern nearby.**
+
+Using this pattern vastly increases the testability of the system.
+
+## Ch. 24: Partial Boundaries
