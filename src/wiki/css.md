@@ -44,3 +44,56 @@ There are two ways users can resize the text on the page:
 ## Line height
 
 Minimum recommended value for body text is `1.5`.
+
+## `inherit`
+
+A common example of where you might use it is to prevent hyperlinks from having their default blue styles and instead inheriting their color from an ancestor, so that they have the same color as the surrounding text.
+
+## Logical properties
+
+- `margin-block-start` --> `margin-top`
+- `margin-block-end` --> `margin-bottom`
+- `margin-inline-start` --> `margin-left`
+- `margin-inline-end` --> `margin-right`
+
+These are less rigid that the directional styles because they work with different writing directions.
+
+There are logical variants for padding, border, and overflow as well.
+
+## Box model
+
+4 layers:
+
+1. Content
+2. Padding
+3. Border
+4. Margin
+
+`box-sizing: content-box` is the default, but `box-sizing: border-box` is much more intuitive.
+
+Default styles to add to every project:
+
+```css
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+```
+
+## `em` vs. `px` for box model properties
+
+For padding, margin, and border, Josh Comeau argues that pixel values are actually _more_ accessible than `em`s. If people scale up the font size in their browser settings, it doesn't necessarily make sense to add more space between elements as well. For horizontal padding especially, using ems will cause context with different font sizes to not line up along the left gutter. And using ems will make lines of text much shorter when the user bumps up the font size in their browser settings. But it _could_ make sense to use relative units for vertical padding... it depends on if you think blocks of text should have spacing between them scale when the font size increases.
+
+## When you only pass three values to shorthand declarations
+
+It just starts at the top and works clockwise, and then when it runs out of units, it determines the next unit by mirroring the opposite side.
+
+```css
+.box {
+  padding: 10px 40px 20px;
+}
+
+```
+
+In the example above, it sets top padding to 10px, right padding to 40px, bottom padding to 20px, and then it's out of values for padding left! Since it's out of values, it looks at the right padding and mirrors it, so 40px.
