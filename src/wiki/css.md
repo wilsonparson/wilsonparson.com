@@ -97,3 +97,35 @@ It just starts at the top and works clockwise, and then when it runs out of unit
 ```
 
 In the example above, it sets top padding to 10px, right padding to 40px, bottom padding to 20px, and then it's out of values for padding left! Since it's out of values, it looks at the right padding and mirrors it, so 40px.
+
+## Flow Layout
+
+- This is the name of the default layout.
+
+### Inline elements
+
+- They "don't make a fuss."
+- You can set horizontal margins and padding on them, but you can't change width or height.
+- Exception: Replaced elements: img, video, canvas
+  - These are technically inline, but they can affect block layout.
+  - Think of them like foreign objects with an inline wrapper. The objects themselves can receive a height/width/etc.
+- Exception: buttons
+  - Technically inline, but can receive a width and height
+- Inline elements are displayed as if the they're typography. For example, an image with have a little extra space below it because of line height. You can get around this by setting the element in question to display block, or by setting the line height to zero.
+- Inline elements will respect HTML white space sensitivity. So if you have image tags on new lines in your code, the browser will add little spaces between them.
+- Inline elements can wrap to new lines, which makes it easier to understand why certain box-model properties aren't applicable to them.
+
+#### `box-decoration-break`
+
+If you want add horizontal padding to an inline element, and you want the padding to apply on every wrapped line, you can use:
+
+```css
+.my-inline-element {
+  box-decoration-break: clone;
+}
+```
+
+The default value is `slice`, which only renders the horizontal padding at the very beginning and end of the element. So for wrapped lines, they wouldn't respect the padding.
+
+`clone`: this value will apply the horizontal padding on every wrapped line.
+  
