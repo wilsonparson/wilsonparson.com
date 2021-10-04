@@ -81,11 +81,11 @@ Default styles to add to every project:
 }
 ```
 
-## `em` vs. `px` for box model properties
+### `em` vs. `px` for box model properties
 
 For padding, margin, and border, Josh Comeau argues that pixel values are actually _more_ accessible than `em`s. If people scale up the font size in their browser settings, it doesn't necessarily make sense to add more space between elements as well. For horizontal padding especially, using ems will cause context with different font sizes to not line up along the left gutter. And using ems will make lines of text much shorter when the user bumps up the font size in their browser settings. But it _could_ make sense to use relative units for vertical padding... it depends on if you think blocks of text should have spacing between them scale when the font size increases.
 
-## When you only pass three values to shorthand declarations
+### When you only pass three values to shorthand declarations
 
 It just starts at the top and works clockwise, and then when it runs out of units, it determines the next unit by mirroring the opposite side.
 
@@ -93,7 +93,6 @@ It just starts at the top and works clockwise, and then when it runs out of unit
 .box {
   padding: 10px 40px 20px;
 }
-
 ```
 
 In the example above, it sets top padding to 10px, right padding to 40px, bottom padding to 20px, and then it's out of values for padding left! Since it's out of values, it looks at the right padding and mirrors it, so 40px.
@@ -129,3 +128,22 @@ The default value is `slice`, which only renders the horizontal padding at the v
 
 `clone`: this value will apply the horizontal padding on every wrapped line.
   
+### Border
+
+- If you don't specify a border color, it'll use the _font's color_ by default. You can also specify this explicitly by using the `currentColor` keyword.
+- There are actually a lot of border styles: solid, dotted, dashed, double, groove, ridge, inset, outset.
+
+### Outline
+
+- Outline is different from border in that it _doesn't affect layout_ (i.e., box model).
+- Outlines are stacked outside the border, and can sometimes be used as a "second border."
+- No such thing as `outline-radius`. But browsers are _just barely_ starting to automatically match the radius of outline corners to border radius.
+- `outline-offset`: allows you to add a little bit of gap between the element and its outline.
+
+### Margin
+
+- When you give an element a negative margin, it affects the flow of all the elements around it. For example, if you give it `margin-top: -20px`, then all the elements following it will shift up to fill the space displaced by the element you've given the negative margin.
+- `auto` seeks to fill the maximum available space.
+- `auto` isn't necessarily outdated for centering things. Although you can use Flexbox and Grid, there are some scenarios where `auto` is still most appropriate. An example would be if you just want to center all the block quotes in a blog post.
+- Negative margins are handy for when you want an element to straddle a border for aesthetic effect.
+- I've always avoided negative margins because they can be used in hacky ways when a better solution is available, but sometimes they _are_ the most straightforward solution. For example, if you want all of your content to have some padding, but you want images to span the whole width of the viewport, it's actually a little cleaner to just use negative margins on your images (or on containers around the images) than to specify the margin/padding for every individual piece of content.
