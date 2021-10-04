@@ -127,7 +127,7 @@ If you want add horizontal padding to an inline element, and you want the paddin
 The default value is `slice`, which only renders the horizontal padding at the very beginning and end of the element. So for wrapped lines, they wouldn't respect the padding.
 
 `clone`: this value will apply the horizontal padding on every wrapped line.
-  
+
 ### Border
 
 - If you don't specify a border color, it'll use the _font's color_ by default. You can also specify this explicitly by using the `currentColor` keyword.
@@ -148,3 +148,10 @@ The default value is `slice`, which only renders the horizontal padding at the v
 - Negative margins are handy for when you want an element to straddle a border for aesthetic effect.
 - I've always avoided negative margins because they can be used in hacky ways when a better solution is available, but sometimes they _are_ the most straightforward solution. For example, if you want all of your content to have some padding, but you want images to span the whole width of the viewport, it's actually a little cleaner to just use negative margins on your images (or on containers around the images) than to specify the margin/padding for every individual piece of content.
   - You have to wrap images in a wrapper element so that your image can have `width: 100%` and will fill the space of the wrapper element. If you apply the negative margins to the image itself, it'll still have `width: 100%` of its parent container, and that still obeys the parent's padding, so the image won't stretch across the entire viewport.
+
+### `inline-block`
+
+- Allows you to "drop a block element into an inline context."
+- Internally it acts like a block element, but externally, it acts like an inline element.
+- Internally, we have the full scale of CSS flexbility, but the parent element treats it like an inline element.
+- Doesn't line wrap.
