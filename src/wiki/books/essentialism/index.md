@@ -190,3 +190,14 @@ You have to actively eliminate the non-essential in order to have time and space
   - I want to be a tech lead.
   - I want a blog with at least 50 readers.
 - Strive for absolute clarity in your goals and purpose as a team (also applies to your personal life, though).
+
+### Chapter 11: Dare: The Power of a Graceful "No"
+- It always feels wrong to say no to someone. But failing to say no can cause us to miss out on something far more important.
+- Example of Steven Covey saying no to a professional dinner invite to keep his date with his daughter in San Francisco. She never forgot that night.
+- After the initial let-down that people experience when we say no to them, they actually respect us more, because they understand that our time is valuable.
+- Separate the decision from the relationship. You're not saying no to the relationship.
+- Always think about trade-offs and opportunity cost. If you say yes to someone, what are you giving up?
+- A clear "no" can be more graceful than a vague or noncomittal yes.
+
+### Chapter 12: Uncommit: Win Big by Cutting Your Losses
+- [[sunk-cost-bias|Sunk Cost Bias]]
