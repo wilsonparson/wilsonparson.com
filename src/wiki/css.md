@@ -155,3 +155,251 @@ The default value is `slice`, which only renders the horizontal padding at the v
 - Internally it acts like a block element, but externally, it acts like an inline element.
 - Internally, we have the full scale of CSS flexbility, but the parent element treats it like an inline element.
 - Doesn't line wrap.
+
+## Width Algorithms
+
+- Block-level elements do _not_ have a default width of 100%. They have a default width of `auto`.
+- Percentage-based widths are based on **the parent element's content space**.
+  - For example if the body is 400px wide, and you give a child element 100% width, the child element will be 400px wide, regardless of any other circumstances. So even if the child element has a margin, it'll still be 400px wide, and will overlap out of the body because of the margin.
+- `auto` width is very similar to `auto` margin: it's a hungry value that will grow as much as it's able to, but no more. In other words, it'll respect margins.
+  - Another way of looking at it is that `auto` width is context-aware, while 100% width is not.
+
+### Keyword width values
+
+#### `min-content`
+
+- You want the content to become as small as it can, _based on the child contents_.
+- This is an _intrinsic_ value, because it's focused on the element itself. _Extrinsic_ values, like `auto` focus on the space made available by the parent.
+- `min-content` aggressively breaks text onto new lines at every white space or hyphenated word.
+
+#### `max-content`
+
+- Opposite strategy of `min-content`: it _never_ adds any line breaks.
+- The element's width will be the smallest value that contains the content without breaking it up.
+- Doesn't pay any attention to the parent. It's _intrinsic_.
+- Produces a nice effect where you can "highlight" the text by providing a background that only stretches the width of the content.
+  - But this can be risky: if the content is ever wider than the parent element, it'll just bleed right out of the right side of it.
+  - Which leads us to the next keyword...
+
+#### `fit-content`
+
+- A perfect Goldilocks solution
+- Based on the size of the children content
+- If the width of the children content can fit within the parent container, it behaves just like `max-content`, not adding any line breaks.
+- If the content is too wide to fit in the parent, it adds line breaks as needed to ensure it never exceeds the available space. In this case it behaves just like `width: auto`.
+- This lets us achieve the "only highlighting the content width, and nothing more" effect.
+
+### Max-width wrapper utility
+
+This is a utility that you'll find yourself using all the time in projects. It looks something like this:
+
+```css
+.max-width-wrapper {
+  max-width: 400px;
+  margin-inline: auto;
+  /* For smaller viewports, we don't want child elements to go right to the
+    edge of the viewport. */
+  padding-inline: 32px;
+}
+```
+
+## Height Algorithms
+
+Height behaves kind of like `width: min-content`: it shrinks as small as it can, while containing the children.
+
+### Why `height: 100%` often doesn't work
+
+```html
+<body>
+  <section></section>
+</body>
+```
+
+```css
+section {
+  background: blue;
+  height: 100%;
+}
+```
+
+In the scenario above, `height: 100%` will have no effect. This is because by default, the height of an element is determined by its children contents. Our style is telling `section` to set its height to 100% of the `body` height, but the `body` height is determined by the `section` element, which is 0.
+
+The solution:
+
+```css
+html,
+body {
+  min-height: 100%;
+}
+
+section {
+  background: blue;
+  min-height: 100%;
+}
+```
+
+You have to set `min-height: 100%` starting at the root element: `html`. This will tell `html` to fill the entire viewport height. Then you can do the same with `body`, and however many child elements you want.
+
+> Note: Josh Comeau recommends `height: 100%` on the `html` and `body` elements, but when your content becomes taller than the viewport, I noticed that the `body` doesn't grow with it, only `html` does. So in other words, your content is bleeding out of your `body` if it's longer than one screen height. It doesn't seem to have a visible effect on anything, but you might as well make your body the same height as the `html` by using `min-height`.
+
+In general, height tends to look _down the tree_ to determine its value, while width tends to look _up the tree_ to determine its value.
+
+#### Why not use `100vh`?
+
+I've used `min-height: 100vh` on projects before, but apparently it doesn't work as expected on mobile. When you scroll on a mobile device, the address bar and footer controls slide away, yielding their space to the content. This means that scrolling changes the viewport height.
+
+To avoid flickering UI issues, browsers like iOS Safari and Chrome Android will set `vh` equal to the _maximum viewport height_, after scrolling, which means that when the page first loads and you haven't scrolled, `100vh` is actually taller than the viewable area. Using `min-height: 100%` produces a better experience.
+
+## Margin Collapse (or Margin Overlap)
+
+Think about it like "stay 6 feet away from eachother." If the requirement is just for us to stay 6 feet away from each other, we don't need to stay 12 feet away—our 6 feet of personal space can overlap!
+
+Margin collapse is also the reason why if you give top margin to, say, an `h2` element inside of a parent element, it will move the entire parent element down, instead of just the heading.
+
+### Rules of Margin Collapse
+
+#### Only vertical (i.e., block-direction) margins collapse
+
+The historical reason for this is that in the early days when margin collapse was implemented, HTML wasn't intended for layouts, but for documents.
+
+When you change the writing mode to `writing-mode: vertical-lr`, though, it behaves as you would expect. Margins in the direction of the blocks collapse. This something I'll probably never have to worry about though.
+
+#### Margins only collapse in Flow layout
+
+They don't collapse inside a flexbox, for example.
+
+#### Only adjacent elements collapse
+
+So if you have a `br` between two paragraphs that have margins, the margins won't collapse.
+
+#### The bigger margin wins
+
+```css
+p {
+  margin-bottom: 16px;
+}
+
+p + p {
+  margin-top: 8px;
+}
+```
+
+In this scenario, there will be 16px between the paragraphs. This one feels intuitive if you think about it like personal space. The person that needs more personal space is the only one you care about.
+
+#### Nesting doesn't prevent collapsing
+
+```html
+<style>
+  p {
+    margin-block: 48px;
+  }
+</style>
+
+<div>
+  <p>Paragraph One</p>
+  <div>
+    <p>Paragraph Two</p>
+  </div>
+</div>
+```
+
+The margins between the first and second paragraph **will still collapse**, even though the second paragraph is nested inside a div!
+
+Most of us have a misconception about how margins work. **Margin is intended to increase the distance between siblings. It is _not_ meant to increase the gap between a child and its parent's bounding box. That's what padding is for.**
+
+Margin will always try to increase the distance between siblings, **even if it means _transferring_ the margin to the parent element.**
+
+This only happens when margins are _touching_, though. So you might have been able to successfully space a first child from its parent's bounding box, but _only if it wasn't touching another margin above it_.
+
+##### Examples of nested margins that _don't_ collapse
+
+###### Blocked by padding or border
+
+```html
+<style>
+  p {
+    margin-block: 48px;
+  }
+
+  div {
+    padding-bottom: 16px;
+  }
+</style>
+
+<div>
+  <p>Paragraph One</p>
+</div>
+<p>Paragraph Two</p>
+```
+
+The bottom padding on the `div` makes it so that the margins between the two `p`s aren't touching. A border will have the same effect.
+
+###### Blocked by a gap
+
+```html
+<style>
+  p {
+    margin-block: 48px;
+  }
+
+  div {
+    height: 200px;
+  }
+</style>
+
+<div>
+  <p>Paragraph One</p>
+</div>
+<p>Paragraph Two</p>
+```
+
+The fixed height of the parent `div` creates a gap of dead space between the two paragraphs' margins, so the margins don't collapse.
+
+#### Margins can collapse in the same direction
+
+They don't have to be opposing margins between adjactent elements.
+
+```html
+<style>
+  .parent {
+    margin-top: 72px;
+  }
+  .child {
+    margin-top: 24px;
+  }
+</style>
+<div class="parent">
+  <p class="child">Paragraph One</p>
+</div>
+```
+
+This is an extension of the previous rule. The child's top margin will be swallowed up by the parent's top margin. \*\*This happens even with elements that have no margin. 0 margin combined with 32px margin will collapse to 32px, since 32 is bigger.
+
+#### More than two margins can collapse
+
+This occurs if you have collapsing margins between parents and children, _and_ between adjacent elements.
+
+#### Negative margins collapse as well
+
+When two elements have overlapping negative margins, the one with the most significant negative margin wins the battle.
+
+When negative and positive margins overlap, the resulting margin is the sum (i.e., -24px + 24px = 0).
+
+To "cancel out" a margin (maybe on a legacy component or something you can't control), you can just wrap it in a parent and apply a negative margin on the parent.
+
+#### Multiple positive and negative margins
+
+Here's what the algorithm looks like:
+
+1. Find the largest positive margin
+2. Find the largest negative margin (i.e., most significant negative margin)
+3. Add the two numbers together
+
+### Using Margin Effectively
+
+Josh really likes the idea of "margin considered harmful," but the reality is that unless you're starting a brand new project and the entire team is onboard, you'll be stuck with margin.
+
+> Margin is like putting glue on something before you've decided what to stick it to, or if it should be stuck to anything.
+> --Heydon Pickering
+
+The idea is that you shouldn't put margin on components, because you don't know how the component will be used (unless it really is a one-off component). Reusable components should be as unopinionated as possible. The solution: **layout components**. The idea is that _components aren't allowed to have an "external margin"_. Instead, components are grouped using layout components like `Stack` from Braid's design system.
