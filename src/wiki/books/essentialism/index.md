@@ -201,3 +201,28 @@ You have to actively eliminate the non-essential in order to have time and space
 
 ### Chapter 12: Uncommit: Win Big by Cutting Your Losses
 - [[sunk-cost-bias|Sunk Cost Bias]]
+- Endowment effect: tendency to overvalue things we own and undervalue things that aren't ours.
+  - Antidote: "If I didn't own this item, how much would I pay for it?"
+  - "If I didn't already have this opportunity, how much would I sacrifice to get it?"
+- Admit to failure to begin success. You can make a mistake part of your past only when you've admitted it. It's just admitting you're now wiser than you were.
+- Zero-based budgeting for commitments: instead of budgeting your time based on existing commitments, assume all bets are off and try budgeting with a clean slate. Every commitment, resource, and use of time has to justify itself anew. This helps avoid status quo bias.
+- Reverse pilot: when you test out removing something and observe whether there are negative consequences.
+
+### Chapter 13: Edit: The Invisible Art
+
+- Deliberate subtraction to add more life to things. Applies to film editing and life. You can focus more on what matters.
+
+### Chapter 14: Limit: The Freedom of Setting Boundaries
+
+- It's not just that the boundary between work and family have blurred (mostly because of technology); it's that work has invaded the family territory.
+- Clayton Christensen standing his ground when being asked to come in for a client meeting on Saturday and then on Sunday. Reminds me of Dane Jacobson.
+- If you don't set boundaries, there won't be any. Or worse, someone else will set them for you.
+- Nonessentialists see boundaries as constraints that hinder their hyper productive life. Essentialists see boundaries as empowering.
+- Boundaries protect you from having to say no to things that you don't care about. You set the rules in advance so you don't even have to say no.
+- Don't rob people of their problems. Still serve and give, but don't let anyone make their problem your problem. If you do that, you're enabling them. And you're taking away their ability to solve it.
+- Watering grass metaphor. Your neighbor never waters his grass, but when you water yours, the water falls onto his yard instead. He's happy because his grass looks great, but yours is dry and dying. It's a dual problem, because it's preventing him from solving his problem, and it's not allowing you to use your water for your own grass. You need a fence to make sure that his problems stay in your yard, and yours stay in his.
+- To determine your boundaries, start listing people and situations where someone makes you feel twinges of resentment.
+
+## Part III: Execute: How Can we make doing the vital few things almost effortless?
+
+Once you've figured out which activities and efforts to keep in your life, create a system for executing them.
