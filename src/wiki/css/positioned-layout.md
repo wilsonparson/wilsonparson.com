@@ -114,3 +114,49 @@ The code above will move the box outside of its containing box.
 
 - Good idea to make the tooltip a child of the trigger element, so that it's easier to position it.
 - Remember that you can have `border-color` inherit from `color` if you don't specify a color for your border (e.g., `border: 2px solid`).
+
+## Fixed Positioning
+
+Similar to absolute positioning, but even _more_ rebellious: it can _only_ be contained by the viewport. It doesn't care about containing blocks at all.
+
+You can center a fixed element using the same trick we used for absolute positioning:
+
+```html
+<style>
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 85%;
+    height: 200px;
+    margin: auto;
+  }
+</style>
+
+<div>
+  <div class="modal">Hello World</div>
+</div>
+```
+
+You need the same ingredients:
+
+1. Position absolute or fixed
+2. All sides set to 0
+3. Explicit dimensions
+4. Auto margins
+
+### Fixed position w/o anchor points
+
+If we don't specify a top/left/right/bottom, then the fixed position element just sits where it would normally sit in flow layout. And just like absolutely positioned elements, it's incorporeal.
+
+### The transform exception
+
+An exception to the rule of fixed elements being fixed in the viewport is if an ancestor element uses the `transform` property. If that is the case, that element becomes the containing block for the fixed element. It essentially becomes an absolutely-positioned element.
+
+**Transformed ancestors cannot have fixed descendants.**
+
+Side note: sometimes the fastest way to find a culprit element that is breaking something for descendants is to run scripts that traverse the DOM, looking for the culprit.
+
+Another side note: You can change the environment of your browser console so that it runs in the context of an iframe. There's a little dropdown that defaults to `top` above your console.

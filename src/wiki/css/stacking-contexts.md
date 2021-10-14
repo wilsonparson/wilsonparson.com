@@ -90,3 +90,10 @@ There's a "CSS Stacking Context Inspector" in Chrome extensions that adds anothe
   - This is nice because it creates a stacking context without requiring us to set a z-index.
   - This can be particularly nice for components. You don't want the z-index to bleed out of the component and affect other things. `isolation: isolate` allows you to have a single stacking context for your component.
   - You should think about using this on a parent element whenever you add a `z-index` to a child element, because it helps you avoid those weird, unexpected bugs.
+
+## Portals
+
+- In general, they're a solution to the z-index problem.
+- They allow you to render a component as a sibling to your `#root` app container in the DOM tree.
+- This is helpful for things like modals.
+- If you want to make sure your app elements are in a different stacking context than what's in your portal, you can use `#root { isolation: isolate; }` to create a stacking context for the app explicitly.
