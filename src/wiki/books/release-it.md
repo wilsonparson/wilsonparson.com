@@ -347,3 +347,36 @@ Failure response is better than a slow response.
 ### Create Back Pressure
 
 - As a queue length reaches infinity, response time also reaches infinity.
+
+## Ch. 7: Foundations
+
+"Designing for production means designing for people who do operations."
+
+### NICs and Names
+
+#### Hostname
+
+1. The name an operating system uses to identify itself (run `hostname` command)
+2. The external name of a system which DNS takes and resolves to an IP address.
+
+These are not the same thing.
+
+DNS to IP address is a many-to-many relationship. A single domain name can map to multiple IP addresses, via a load balancer. And multiple domain names can point to the same IP.
+
+A single server can have many network interfaces. NIC = Network Interface Controller.
+
+You can have some interfaces for production traffic, and some for monitoring or operations. It's also good practice to perform backups on a separate network interface, since backups are short bursts of large volume, it can clog up production traffic.
+
+You should specify not only the port number, but also the domain name where you want your server to listen to incoming traffic.
+
+### Physical Hosts
+
+Back in the day, you wanted each box in the data center to be designed for high reliability. Now we use load-balanced services with so much redundancy that the loss of a single box isn't a big deal, so they're designed to be as cheap as possible.
+
+### Virtual Machines in the Data Center
+
+### Containers in the Data Center
+
+### Notes from presentation
+
+- Don't use the JavaScript `.now` function; rely on Postgres's timing.
