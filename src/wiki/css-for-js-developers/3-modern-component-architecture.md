@@ -18,6 +18,7 @@ title: 'Module 3: Modern Component Architecture'
 - He uses CSS resets.
 - It can be a little tedious to create a component for paragraphs and for headings when you could just apply global styles. Need to weigh trade offs.
 - He uses lots of CSS variables.
+
 ## Dynamic styles (w/ styled-components)
 
 Three ways:
@@ -35,7 +36,7 @@ const Button = ({ color, onClick, children }) => {
       {children}
     </Wrapper>
   );
-}
+};
 const Wrapper = styled.button`
   color: var(--color);
   padding: 16px 24px;
@@ -46,7 +47,7 @@ With interpolation, if the resulting value is falsey, styled-components just doe
 
 ```tsx
 const Wrapper = styled.button`
-  color: ${props => props.isCurrent && 'deeppink'};
+  color: ${(props) => props.isCurrent && 'deeppink'};
 `;
 ```
 
@@ -65,3 +66,78 @@ He's very skeptical about the idea that most front-end developers won't have to 
 It can seem like using a pre-existing component library is a huge advantage if you're not a designer, but in reality all you're doing is using really good LEGO blocks without instructions, which results in a product without cohesion. The truth is, you have an advantage with starting from scratch because you can make things cohesive. That said, open-source component libraries can be good for things like prototyping or hackathons.
 
 There _is_ a middle ground, though, like Reach UI or Radix UI. These component libraries only provide functionality, and no styles.
+
+### Breadcrumbs
+
+- `text-decoration: revert;` - Sets the text-decoration to whatever it would normally do, before you changed it.
+- The breadcrumb example from WAI, they didn't add an actual slash between links, but a right border that was transformed.
+
+### Buttons
+
+You can use CSS variables passed in as inline styles, and then refer to them in your styled-components:
+
+```tsx
+const SIZES = {
+  small: {
+    '--font-size': '0.875rem',
+  },
+  medium: {
+    '--font-size': '1rem',
+  },
+  large: {
+    '--font-size': '1.125rem',
+  },
+};
+
+const Button = ({ children, size }) => (
+  <Wrapper style={SIZES[size]}>{children}</Wrapper>
+);
+
+const Wrapper = styled.button`
+  font-size: var(--font-size);
+`;
+```
+
+Another thing to remember is that since components are just functions, you can pass them around and assign them to variables, which makes it easy to return different JSX from a component based on logic:
+
+```tsx
+const Button = ({ children, variant }) => {
+  let Component;
+  if (variant === 'primary') {
+    Component = PrimaryButton;
+  } else if (variant === 'secondary') {
+    Component = SecondaryButton;
+  }
+
+  return <Component>{children}</Component>;
+};
+```
+
+You can use the polymorphic `as` prop with dynamic expressions:
+
+```tsx
+const Button = ({ href, children }) => {
+  return <Wrapper as={href ? 'a' : 'button'}>{children}</Wrapper>;
+};
+
+const Wrapper = styled.button``;
+```
+
+### Escape hatches
+
+If you want to be be able to compose your own component as a styled-component, all you need to do is add the `className` prop to your component, since styled-components relies on CSS classes for styling:
+
+```tsx
+// Vanilla React component
+const MyButton = ({ children, className }) => (
+  <button className={className}>{children}</button>
+);
+
+const MyStyledButton = styled(MyButton)`
+  color: deeppink;
+`;
+```
+
+This is a good escape hatch to build into the components of your component library, because it doesn't make it _impossible_ to craft your own styles, but there _is_ friction when you do it. It's great for one-off cases where you don't want to modify the core API of your component just for one use case.
+
+## Single source of styles
