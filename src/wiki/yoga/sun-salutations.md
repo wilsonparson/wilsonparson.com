@@ -22,3 +22,30 @@ In Ashtanga yoga you generally do 5 sun salutations.
 | Out    | Forward fall                                   |
 | In     | Hands above head                               |
 | Out    | Namaste (hands together) or mountain pose      |
+
+## Sun Salutation B
+
+...after finishing Sun Salutation A you'll be in mountain pose or namaste pose. That is where you start Sun Salutation B.
+
+| Breath | Movement                                                   |
+| ------ | ---------------------------------------------------------- |
+| In     | Chair pose (look at thumbs)                                |
+| Out    | Fall                                                       |
+| In     | Flat Back                                                  |
+| Out    | Chest to ground                                            |
+| In     | Upward dog                                                 |
+| Out    | Downward dog, back foot 45-deg angle, start to raise hands |
+| In     | Warrior 1                                                  |
+| Out    | Chest to ground                                            |
+| In     | Upward dog                                                 |
+| Out    | Downward dog, back foot 45-deg angle, start to raise hands |
+| In     | Warrior 1                                                  |
+| Out    | Chest to ground                                            |
+| In     | Upward dog                                                 |
+| Out    | Downward dog                                               |
+| In     | Bend knees                                                 |
+| Out    | Jump feet to hands                                         |
+| In     | Flat back                                                  |
+| Out    | Forward fall                                               |
+| In     | Hands above head                                           |
+| Out    | Namaste                                                    |
