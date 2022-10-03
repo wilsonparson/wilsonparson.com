@@ -1,0 +1,11 @@
+---
+import type { MarkdownLayoutProps } from 'astro';
+
+export type Props = MarkdownLayoutProps<{
+  title: string;
+  description?: string;
+  date?: string;
+}>;
+
+const { frontmatter } = Astro.props;
+---

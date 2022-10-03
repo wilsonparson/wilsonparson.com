@@ -1,3 +1,8 @@
+/* 
+TODO: Figure out the best way to apply base styles with the
+Astro / Tailwind integration. Leaving this file here from before
+migrating to Astro, just as a reference.
+*/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
