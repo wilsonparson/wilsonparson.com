@@ -1,5 +1,5 @@
 ---
-title: Lessons learned from building my first design system
+title: Lessons I learned from building my first design system
 date: 2022-10-02
 status: draft
 ---
