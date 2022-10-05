@@ -27,8 +27,8 @@ This post is a summary of the lessons I learned building _Nucleus_ between Febru
     - "They could always just override it."
     - "It'll just work with global styles as long as the designer does it right."
     - If they want to render an H1 variant as a `<p>` tag, they'll be SOL. (not willing to reset user agent styles)
-  - Get real
-    - Avoid over-optimism and over-simplification
-      - "Why do we need to build spacing utilities? They just need components."
-      - It won't be right the first time. It won't.
-      - It won't "just work" with global styles, and without spacing utilities and guardrails.
+- Get real
+- Avoid over-optimism and over-simplification
+  - "Why do we need to build spacing utilities? They just need components."
+  - It won't be right the first time. It won't.
+  - It won't "just work" with global styles, and without spacing utilities and guardrails.
