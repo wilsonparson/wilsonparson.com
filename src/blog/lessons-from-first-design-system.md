@@ -10,4 +10,25 @@ Our team had me, another front-end engineer, and a visual designer. While we did
 
 This post is a summary of the lessons I learned building _Nucleus_ between February and September of 2022.
 
-## Remove your ego
+- Remove your ego
+- Don't build everything from scratch
+- Use stuff that is already built
+- Just go with sensible defaults
+- Avoid analysis paralysis (waterfall)
+- Work with a team to test things out early, but keep your expectations low for output
+- You won't get it right the first time, so do the first time as soon as possible rather than delaying it out of fear of getting it wrong
+  - Could quote _The Mythical Man-Month_ about this idea.
+- Make sure design systems engineers have empathy for the consumers of the system.
+  - "They're using it wrong. I don't know why they would do it that way."
+  - "This component is done." (no testing, documentation or even stories)
+  - Not being willing to test your own work
+  - Blame-shifting: "No one ever told me this was a pain point."
+  - Lazy API design:
+    - "They could always just override it."
+    - "It'll just work with global styles as long as the designer does it right."
+    - If they want to render an H1 variant as a `<p>` tag, they'll be SOL. (not willing to reset user agent styles)
+  - Get real
+    - Avoid over-optimism and over-simplification
+      - "Why do we need to build spacing utilities? They just need components."
+      - It won't be right the first time. It won't.
+      - It won't "just work" with global styles, and without spacing utilities and guardrails.
