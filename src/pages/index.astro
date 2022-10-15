@@ -1,9 +1,29 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { mediumDate } from '../util';
+const posts = await Astro.glob('../pages/blog/*.md');
+const publishedPosts = posts.filter((post) => !post.frontmatter.draft);
 ---
 
-<BaseLayout title="Home" description="My personal website">
-	<h1>Hi, I'm Wilson.</h1>
-	<p>🧑🏻‍💻 I'm a front-end software engineer living in Utah.</p>
-	<p>🛠 This site is a work in progress. <a href="https://github.com/wilsonparson/wilsonparson.com/issues">See what's coming next.</a></p>
+<BaseLayout title="Home" description="My personal blog">
+  <ul>
+    {
+      publishedPosts.map((post) => {
+        return (
+          <li>
+            <a
+              href={post.url}
+              class="text-lg font-semibold underline hover:no-underline"
+            >
+              {post.frontmatter.title}
+            </a>
+            <br />
+            <date class="text-gray-500 text-sm dark:text-gray-400">
+              {mediumDate(post.frontmatter.date)}
+            </date>
+          </li>
+        );
+      })
+    }
+  </ul>
 </BaseLayout>

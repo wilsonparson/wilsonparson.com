@@ -8,5 +8,5 @@ module.exports = {
       borderWidth: ['dark'],
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };

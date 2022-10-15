@@ -1,0 +1,25 @@
+---
+import type { MarkdownLayoutProps } from 'astro';
+import { mediumDate } from '../util';
+import BaseLayout from './BaseLayout.astro';
+
+type Props = MarkdownLayoutProps<{
+  title: string;
+  date: string;
+}>;
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout title={frontmatter.title}>
+  <div class="mb-6">
+    <h1 class="mb-2 text-3xl font-bold dark:text-gray-200">
+      {frontmatter.title}
+    </h1>
+    <p class="text-gray-400 font-medium">
+      {mediumDate(frontmatter.date)}
+    </p>
+  </div>
+  <div class="prose dark:text-inherit dark:prose-invert">
+    <slot />
+  </div>
+</BaseLayout>
