@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { mediumDate } from '../util';
+const posts = await Astro.glob('../pages/blog/*.md');
+const publishedPosts = posts.filter((post) => !post.frontmatter.draft);
+---
+
+<BaseLayout title="Home" description="My personal blog">
+  <ul>
+    {
+      publishedPosts.map((post) => {
+        return (
+          <li>
+            <a
+              href={post.url}
+              class="text-lg font-semibold underline hover:no-underline"
+            >
+              {post.frontmatter.title}
+            </a>
+            <br />
+            <date class="text-gray-500 text-sm dark:text-gray-400">
+              {mediumDate(post.frontmatter.date)}
+            </date>
+          </li>
+        );
+      })
+    }
+  </ul>
+</BaseLayout>
