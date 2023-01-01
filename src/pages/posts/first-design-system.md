@@ -11,6 +11,15 @@ Our team had me, another front-end engineer, and a visual designer. While we did
 
 This post is a summary of the lessons I learned building _Nucleus_ between February and September of 2022.
 
+## You are not a snowflake
+
+> You are not a beautiful and unique snowflake.
+> — <cite>Tyler Durden, _Fight Club_</cite>
+
+## Overcome your ego
+
+Getting an opportunity to build a brand new design system is 
+
 - Remove your ego
 - Don't build everything from scratch
 - Use stuff that is already built
@@ -33,7 +42,3 @@ This post is a summary of the lessons I learned building _Nucleus_ between Febru
   - "Why do we need to build spacing utilities? They just need components."
   - It won't be right the first time. It won't.
   - It won't "just work" with global styles, and without spacing utilities and guardrails.
-
-I just can't get over how much more flow I feel when I can write in markdown without restriction. I've given Wordpress a try, and it just feels too clunky to get my thoughts down. I've tried to remember that just because I know how to code doesn't mean that everything has to be coded. But when you get used to the speed and simplicity of writing in a text editor, it's so hard to go back. I really wanted to find a solution that would allow me to edit posts and publish them on my phone. I don't know if I can find that if I do a markdown blog...
-
-I guess I technically could use _Working Copy_...
