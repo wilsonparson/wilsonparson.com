@@ -10,7 +10,7 @@ const publishedPosts = posts.filter((post) => !post.frontmatter.draft);
     {
       publishedPosts.map((post) => {
         return (
-          <li>
+          <li class="mb-4">
             <a
               href={post.url}
               class="text-lg font-semibold underline hover:no-underline"
