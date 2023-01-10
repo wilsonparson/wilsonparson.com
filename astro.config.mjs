@@ -6,6 +6,9 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   markdown: {
     remarkPlugins: [[defaultLayout, '../../layouts/MarkdownLayout.astro']],
+    shikiConfig: {
+      theme: 'solarized-dark',
+    },
   },
   integrations: [
     tailwind({
